@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Polyneue/behance-api/issues"
   },
-  "homepage": "https://github.com/Polyneue/behance-api#readme"
+  "homepage": "https://github.com/Polyneue/behance-api#readme",
+  "dependencies": {
+    "request": "^2.76.0"
+  }
 }
