@@ -7,6 +7,8 @@ var Behance = require('../index.js');
 var key = require('../api.json').key;
 var Be = new Behance(key);
 
+var fs = require('fs');
+
 // Get Projects
 // Be.projects({q: 'motorcycle'}, function(err, res, data) {
 // 	console.dir(data);
@@ -43,9 +45,10 @@ var Be = new Behance(key);
 // });
 
 // Get User Projects
-// Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
-// 	console.dir(data);
-// });
+Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
+	console.dir(data);
+	fs.writeFile('../test/api-responses/userProjects.json', JSON.stringify(data, null, 4));
+});
 
 // Get User Wips
 // Be.userWips('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
@@ -88,7 +91,7 @@ var Be = new Behance(key);
 // });
 
 // Get Collection
-// Be.collections('9866', function(err, res, data) {
+// Be.collection('9866', function(err, res, data) {
 // 	console.dir(data);
 // });
 

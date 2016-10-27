@@ -28,8 +28,6 @@ Behance.prototype.buildUrl = function(endpoint, options) {
 	var query = '?' + (options ? q.stringify(options) + '&' : ''),
 		clientId = 'client_id=' + _this.clientId;
 
-	console.log('https://api.behance.net/v2/' + endpoint + query + clientId)
-
 	return 'https://api.behance.net/v2/' + endpoint + query + clientId;
 }
 
@@ -48,196 +46,130 @@ Behance.prototype.requestHandler = function(requestUrl, cb) {
 		try {
 			body = JSON.parse(body);
 		} catch(e) {}
-
+		
 		cb(err, res, body);
 	});
 }
 
 /**
- * Get Projects
- * @param {object} options - Queries
- * @api public
+ * Endpoints that only support Options
  */
-Behance.prototype.projects = function(options, cb) {
-	var endpoint = 'projects';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);
-}
+var endpointWithOptionOnly = [{
+	name: 'projects',
+	path: 'projects'
+}, {
+	name: 'creativesToFollow',
+	path: 'creativestofollow'
+}, { 
+	name: 'users',
+	path: 'users'
+}, {
+	name: 'collections',
+	path: 'collections'
+}];
+
+endpointWithOptionOnly.forEach(function(def) {
+	/**
+	 * Get a list of projects/creatives/users/collections
+	 * @param {object} opts - queries
+	 * @param {function} cb - callback
+	 */
+	Behance.prototype[def.name] = function(opts, cb) {
+		var endpoint = def.path;
+		this.requestHandler(this.buildUrl(endpoint, opts), cb);
+	}
+});
 
 /**
- * Get Project
- * @param {string} id - Project ID
- * @api public
+ * Endpoints that require an ID with no Options
  */
-Behance.prototype.project = function(id, cb) {
-	var endpoint = 'projects/' + id;
-	this.requestHandler(this.buildUrl(endpoint), cb);
-}
+var endpointWithOnlyAnId = [{
+	name: 'project',
+	pathprefix: 'projects/'
+}, {
+	name: 'user',
+	pathprefix: 'users/'
+}, {
+	name: 'userStats',
+	pathprefix: 'users/',
+	pathsuffix: '/stats'
+}, {
+	name: 'userWorkExperience',
+	pathprefix: 'users/',
+	pathsuffix: '/work_experience'
+}, {
+	name: 'collection',
+	path: 'collection'
+}];
+
+endpointWithOnlyAnId.forEach(function(def) {
+	/**
+	 * Get info about a project/user/collection
+	 * @param {string} id - identifier 
+	 * @param {function} cb - callback
+	 */
+	Behance.prototype[def.name] = function(id, cb) {
+		var endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+		this.requestHandler(this.buildUrl(endpoint), cb);
+	}
+});
 
 /**
- * Get Project Comments
- * @param {string} id - Project ID
- * @param {object} options - queries
- * @api public
+ * Endpoints that require an ID and support Options
  */
-Behance.prototype.projectComments = function(id, options, cb) {
-	var endpoint = 'projects/' + id + '/comments';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);
-}
+var endpointWithIdAndOptions = [{
+	name: 'projectComments',
+	pathprefix: 'projects/',
+	pathsuffix: '/comments'
+}, {
+	name: 'userProjects',
+	pathprefix: 'users/',
+	pathsuffix: '/projects'
+}, {
+	name: 'userWips',
+	pathprefix: 'users/',
+	pathsuffix: '/wips'
+}, {
+	name: 'userAppreciations',
+	pathprefix: 'users/',
+	pathsuffix: '/appreciations'
+}, {
+	name: 'userCollections',
+	pathprefix: 'users/',
+	pathsuffix: '/collections'
+}, {
+	name: 'userFollowers',
+	pathprefix: 'users/',
+	pathsuffix: '/followers'
+}, {
+	name: 'userFollowing',
+	pathprefix: 'users/',
+	pathsuffix: '/following'
+}, {
+	name: 'collectionProjects',
+	pathprefix: 'collections/',
+	pathsuffix: '/projects'
+}];
 
-/**
- * Get Creatives to Follow
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.creativesToFollow = function(options, cb) {
-	var endpoint = 'creativestofollow';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);
-}
+endpointWithIdAndOptions.forEach(function(def) {
+	/**
+	 * Get a list of comments/projects/wips/appreciations/collections/followers
+	 * @param {string} id - identifier 
+	 * @param {object} opts - queries
+	 * @param {function} cb - callback
+	 */
+	Behance.prototype[def.name] = function(id, opts, cb) {
+		var endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+		this.requestHandler(this.buildUrl(endpoint, opts), cb);
+	}
+});
 
 /**
  * Get Creative Fields
- * @api public
  */
 Behance.prototype.fields = function(cb) {
 	var endpoint = 'fields';
 	this.requestHandler(this.buildUrl(endpoint), cb);
-}
-
-/**
- * Get Users
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.users = function(options, cb) {
-	var endpoint = 'users';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);
-}
-
-/**
- * Get User
- * @param {string} id - username or id
- * @api public
- */
-Behance.prototype.user = function(id, cb) {
-	var endpoint = 'users/' + id;
-	this.requestHandler(this.buildUrl(endpoint), cb);
-}
-
-/**
- * Get User Projects
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userProjects = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/projects';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);
-}
-
-/**
- * Get User WIPs
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userWips = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/wips';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get User Appreciations
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userAppreciations = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/appreciations';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get User Collections
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userCollections = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/collections';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get User Stats
- * @param {string} id - username or id
- * @api public
- */
-Behance.prototype.userStats = function(id, cb) {
-	var endpoint = 'users/' + id + '/stats';
-	this.requestHandler(this.buildUrl(endpoint), cb);	
-}
-
-/**
- * Get User Followers
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userFollowers = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/followers';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get User Following
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userFollowing = function(id, options, cb) {
-	var endpoint = 'users/' + id + '/following';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get User Following
- * @param {string} id - username or id
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.userWorkExperience = function(id, cb) {
-	var endpoint = 'users/' + id + '/work_experience';
-	this.requestHandler(this.buildUrl(endpoint), cb);	
-}
-
-/**
- * Get Collections
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.collections = function(options, cb) {
-	var endpoint = 'collections';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
-}
-
-/**
- * Get Collection
- * @param {string} id - id of collection
- * @api public
- */
-Behance.prototype.collections = function(id, cb) {
-	var endpoint = 'collections/' + id;
-	this.requestHandler(this.buildUrl(endpoint), cb);	
-}
-
-/**
- * Get Collection Projects
- * @param {string} id - id of collection
- * @param {object} options - queries
- * @api public
- */
-Behance.prototype.collectionProjects = function(id, options, cb) {
-	var endpoint = 'collections/' + id + '/projects';
-	this.requestHandler(this.buildUrl(endpoint, options), cb);	
 }
 
 module.exports = Behance;
