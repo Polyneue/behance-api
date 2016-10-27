@@ -4,7 +4,7 @@
   "description": "Node.js wrapper for the Behance API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,11 @@
   },
   "homepage": "https://github.com/Polyneue/behance-api#readme",
   "dependencies": {
+    "querystring": "^0.2.0",
     "request": "^2.76.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
   }
 }
