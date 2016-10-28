@@ -12,7 +12,7 @@ Install package with NPM
 npm install behance-api
 ```
 
-##Example
+##Usage
 Making a request looks something like this:
 
 ```javascript
@@ -28,12 +28,12 @@ Be.projects({q: 'motorcycle'}, function(err, res, data) {
 
 The snippet above will make a request to the Behance API and receive the first page of results that match the `motorcycle` query for the `/projects/` endpoint. It then saves that data to a json file to be used. Every callback gets three arguments; an error (if there is one), the HTTP response, and a JSON object.
 
-##API
-###Projects Endpoint
 
-####Projects
-Search for projects.
-[API Projects](https://www.behance.net/dev/api/endpoints/1#projects-get-10)  
+##Projects Endpoint
+
+###Projects
+Search for projects.  
+[Projects Options](https://www.behance.net/dev/api/endpoints/1#projects-get-10)  
 
 ```javascript
 Be.projects(opts, function(err, res, data) {
@@ -41,10 +41,10 @@ Be.projects(opts, function(err, res, data) {
 });
 ```
 
-###Project Endpoint
+##Project Endpoint
 All of the project related functions require a project id.
 
-####Project
+###Project
 Get the information and content of a project.  
 
 ```javascript
@@ -53,9 +53,9 @@ Be.project(id, function(err, res, data) {
 });
 ```
 
-####Project Comments
+###Project Comments
 Get the comments for a project.   
-[API Project Comments](https://www.behance.net/dev/api/endpoints/1#projects-get-5)
+[Project Comment Options](https://www.behance.net/dev/api/endpoints/1#projects-get-5)
 
 ```javascript
 Be.projectComments(id, function(err, res, data) {
@@ -63,11 +63,11 @@ Be.projectComments(id, function(err, res, data) {
 });
 ```
 
-###Users Endpoint
+##Users Endpoint
 
-####Users
-Search for users.
-[API Users](https://www.behance.net/dev/api/endpoints/2#users-get-9)
+###Users
+Search for users.  
+[Users Options](https://www.behance.net/dev/api/endpoints/2#users-get-9)
 
 ```javascript
 Be.users(opts, function(err, res, data) {
@@ -75,10 +75,10 @@ Be.users(opts, function(err, res, data) {
 });
 ```
 
-###User Endpoint
+##User Endpoint
 All of the user related functions require a user id or username.
 
-####User
+###User
 Get basic information about a user.
 
 ```javascript
@@ -87,9 +87,9 @@ Be.user(id, function(err, res, data) {
 });
 ```
 
-####User Projects	
+###User Projects	
 Get the projects published by a user.  
-[API User Projects](https://www.behance.net/dev/api/endpoints/2#users-get-2)
+[User Project Options](https://www.behance.net/dev/api/endpoints/2#users-get-2)
 
 ```javascript
 Be.userProjects(id, opts, function(err, res, data) {
@@ -97,9 +97,9 @@ Be.userProjects(id, opts, function(err, res, data) {
 });
 ```
 
-####User Wips
+###User Wips
 Get the works-in-progress published by a user.  
-[API User Wips](https://www.behance.net/dev/api/endpoints/2#users-get-3)
+[User Wips Options](https://www.behance.net/dev/api/endpoints/2#users-get-3)
 
 ```javascript
 Be.userWips(id, opts, function(err, res, data) {
@@ -107,9 +107,9 @@ Be.userWips(id, opts, function(err, res, data) {
 })
 ```
 
-####User Appreciations
+###User Appreciations
 Get a list of user's recently appreciated projects.  
-[API User Appreciations](https://www.behance.net/dev/api/endpoints/2#users-get-13)
+[User Appreciations Options](https://www.behance.net/dev/api/endpoints/2#users-get-13)
 
 ```javascript
 Be.userApprecitations(id, opts, function(err, res, data) {
@@ -117,9 +117,9 @@ Be.userApprecitations(id, opts, function(err, res, data) {
 });
 ```
 
-####User Collections
+###User Collections
 Get a list of a user's collections.  
-[API User Collections](https://www.behance.net/dev/api/endpoints/2#users-get-21)
+[User Collections Options](https://www.behance.net/dev/api/endpoints/2#users-get-21)
 
 ```javascript
 Be.userCollections(id, opts, function(err, res, data) {
@@ -127,7 +127,7 @@ Be.userCollections(id, opts, function(err, res, data) {
 });
 ```
 
-####User Stats
+###User Stats
 Get statistics (all-time and today) for a specific user. Includes number of project views, appreciations, comments, and profile views.
 
 ```javascript
@@ -136,9 +136,9 @@ Be.userStats(id, function(err, res, data) {
 });
 ```
 
-####User Followers
+###User Followers
 Get a list of creatives who follow the user.  
-[API User Followers](https://www.behance.net/dev/api/endpoints/2#users-get-57)
+[User Followers Options](https://www.behance.net/dev/api/endpoints/2#users-get-57)
 
 ```javascript
 Be.userFollowers(id, opts, function(err, res, data) {
@@ -146,9 +146,9 @@ Be.userFollowers(id, opts, function(err, res, data) {
 });
 ```
 
-####User Following
+###User Following
 Get a list of creatives followed by the user.  
-[API User Following](https://www.behance.net/dev/api/endpoints/2#users-get-59)
+[User Following Options](https://www.behance.net/dev/api/endpoints/2#users-get-59)
 
 ```javascript
 Be.userFollowing(id, opts, function(err, res, data) {
@@ -156,7 +156,7 @@ Be.userFollowing(id, opts, function(err, res, data) {
 });
 ```
 
-####User Work Experience
+###User Work Experience
 A list of the user's professional experience
 
 ```javascript
@@ -165,11 +165,11 @@ Be.userWorkExperience(id, function(err, res, data) {
 });
 ```
 
-###Collections Endpoint
+##Collections Endpoint
 
-####Collections
+###Collections
 Search for collections.  
-[API Collections](https://www.behance.net/dev/api/endpoints/5#collections-get-15)
+[Collections Options](https://www.behance.net/dev/api/endpoints/5#collections-get-15)
 
 ```javascript
 Be.collections(opts, function(err, res, data) {
@@ -177,10 +177,10 @@ Be.collections(opts, function(err, res, data) {
 });
 ```
 
-###Collection Endpoint
+##Collection Endpoint
 All collection related functions require a collection id
 
-####Collection
+###Collection
 Get basic information about a collection.
 
 ```javascript
@@ -189,9 +189,9 @@ Be.collection(id, function(err, res, data) {
 });
 ```
 
-####Collection Projects
-Get projects from a collection.
-[API Collection Projects](https://www.behance.net/dev/api/endpoints/5#collections-get-19)
+###Collection Projects
+Get projects from a collection.  
+[Collection Projects Options](https://www.behance.net/dev/api/endpoints/5#collections-get-19)
 
 ```javascript
 Be.collectionProjects(id, opts, function(err, res, data) {
@@ -199,11 +199,11 @@ Be.collectionProjects(id, opts, function(err, res, data) {
 });
 ```
 
-###Creatives To Follow Endpoint
+##Creatives To Follow Endpoint
 
-####Creatives to Follow
+###Creatives to Follow
 Provides a list of creatives you might be interested in following.  
-[API Creatieves to Follow](https://www.behance.net/dev/api/endpoints/9#creatives-to-follow-get-69)
+[Creatieves to Follow Options](https://www.behance.net/dev/api/endpoints/9#creatives-to-follow-get-69)
 
 ```javascript
 Be.creativesToFollow(opts, function(err, res, data) {
@@ -211,10 +211,9 @@ Be.creativesToFollow(opts, function(err, res, data) {
 });
 ```
 
+##Creative Fields Endpoint
 
-###Creative Fields Endpoint
-
-####Creative Fields
+###Creative Fields
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
