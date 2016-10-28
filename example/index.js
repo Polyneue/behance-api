@@ -12,12 +12,14 @@ var fs = require('fs');
 // Get Projects
 // Be.projects({q: 'motorcycle'}, function(err, res, data) {
 // 	console.dir(data);
+// 	fs.writeFile('../test/api-responses/projects.json', JSON.stringify(data, null, 4));
 // });
 
 // Get Project
-// Be.project('4889175', function(err, res, data) {
-// 	console.dir(data);
-// });
+Be.project('4889175', function(err, res, data) {
+	// console.dir(data);
+	fs.writeFile('../test/api-responses/project.json', JSON.stringify(data, null, 4));
+});
 
 // Get Project Comments
 // Be.projectComments('4889175', {page: '1'}, function(err, res, data) {
@@ -27,11 +29,13 @@ var fs = require('fs');
 // Get Creatives to Follow
 // Be.creativesToFollow({page: '1'}, function(err, res, data) {
 // 	console.dir(data);
+// 	fs.writeFile('../test/api-responses/creativesToFollow.json', JSON.stringify(data, null, 4));
 // });
 
 // Get Creative Fields
 // Be.fields(function(err, res, data) {
 // 	console.dir(data);
+// 	fs.writeFile('../test/api-responses/fields.json', JSON.stringify(data, null, 4));
 // });
 
 // Get Users
@@ -45,10 +49,10 @@ var fs = require('fs');
 // });
 
 // Get User Projects
-Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
-	console.dir(data);
-	fs.writeFile('../test/api-responses/userProjects.json', JSON.stringify(data, null, 4));
-});
+// Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
+// 	console.dir(data);
+// 	fs.writeFile('../test/api-responses/userProjects.json', JSON.stringify(data, null, 4));
+// });
 
 // Get User Wips
 // Be.userWips('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {

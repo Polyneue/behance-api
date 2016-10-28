@@ -4,6 +4,7 @@
 var request = require('request'),
 	q = require('querystring');
 
+
 /**
  * Create an instance of Behance
  * @param {string} token - authentication for Behance API
@@ -17,6 +18,7 @@ var Behance = function(token) {
 	}
 };
 
+
 /**
  * Endpoint and Query Builder
  * @param {string} endpoint - endpoint to query
@@ -29,7 +31,8 @@ Behance.prototype.buildUrl = function(endpoint, options) {
 		clientId = 'client_id=' + _this.clientId;
 
 	return 'https://api.behance.net/v2/' + endpoint + query + clientId;
-}
+};
+
 
 /**
  * Request Handler
@@ -46,10 +49,11 @@ Behance.prototype.requestHandler = function(requestUrl, cb) {
 		try {
 			body = JSON.parse(body);
 		} catch(e) {}
-		
+
 		cb(err, res, body);
 	});
-}
+};
+
 
 /**
  * Endpoints that only support Options
@@ -79,6 +83,7 @@ endpointWithOptionOnly.forEach(function(def) {
 		this.requestHandler(this.buildUrl(endpoint, opts), cb);
 	}
 });
+
 
 /**
  * Endpoints that require an ID with no Options
@@ -113,6 +118,7 @@ endpointWithOnlyAnId.forEach(function(def) {
 		this.requestHandler(this.buildUrl(endpoint), cb);
 	}
 });
+
 
 /**
  * Endpoints that require an ID and support Options
@@ -164,12 +170,13 @@ endpointWithIdAndOptions.forEach(function(def) {
 	}
 });
 
+
 /**
  * Get Creative Fields
  */
 Behance.prototype.fields = function(cb) {
 	var endpoint = 'fields';
 	this.requestHandler(this.buildUrl(endpoint), cb);
-}
+};
 
 module.exports = Behance;
