@@ -33,7 +33,6 @@ The snippet above will make a request to the Behance API and receive the first p
 
 ###Projects
 Search for projects.  
-[Projects Options](https://www.behance.net/dev/api/endpoints/1#projects-get-10)  
 
 ```javascript
 Be.projects(opts, function(err, res, data) {
@@ -55,7 +54,6 @@ Be.project(id, function(err, res, data) {
 
 ###Project Comments
 Get the comments for a project.   
-[Project Comment Options](https://www.behance.net/dev/api/endpoints/1#projects-get-5)
 
 ```javascript
 Be.projectComments(id, function(err, res, data) {
@@ -67,7 +65,6 @@ Be.projectComments(id, function(err, res, data) {
 
 ###Users
 Search for users.  
-[Users Options](https://www.behance.net/dev/api/endpoints/2#users-get-9)
 
 ```javascript
 Be.users(opts, function(err, res, data) {
@@ -89,7 +86,6 @@ Be.user(id, function(err, res, data) {
 
 ###User Projects	
 Get the projects published by a user.  
-[User Project Options](https://www.behance.net/dev/api/endpoints/2#users-get-2)
 
 ```javascript
 Be.userProjects(id, opts, function(err, res, data) {
@@ -99,7 +95,6 @@ Be.userProjects(id, opts, function(err, res, data) {
 
 ###User Wips
 Get the works-in-progress published by a user.  
-[User Wips Options](https://www.behance.net/dev/api/endpoints/2#users-get-3)
 
 ```javascript
 Be.userWips(id, opts, function(err, res, data) {
@@ -109,7 +104,6 @@ Be.userWips(id, opts, function(err, res, data) {
 
 ###User Appreciations
 Get a list of user's recently appreciated projects.  
-[User Appreciations Options](https://www.behance.net/dev/api/endpoints/2#users-get-13)
 
 ```javascript
 Be.userApprecitations(id, opts, function(err, res, data) {
@@ -119,7 +113,6 @@ Be.userApprecitations(id, opts, function(err, res, data) {
 
 ###User Collections
 Get a list of a user's collections.  
-[User Collections Options](https://www.behance.net/dev/api/endpoints/2#users-get-21)
 
 ```javascript
 Be.userCollections(id, opts, function(err, res, data) {
@@ -138,7 +131,6 @@ Be.userStats(id, function(err, res, data) {
 
 ###User Followers
 Get a list of creatives who follow the user.  
-[User Followers Options](https://www.behance.net/dev/api/endpoints/2#users-get-57)
 
 ```javascript
 Be.userFollowers(id, opts, function(err, res, data) {
@@ -148,7 +140,6 @@ Be.userFollowers(id, opts, function(err, res, data) {
 
 ###User Following
 Get a list of creatives followed by the user.  
-[User Following Options](https://www.behance.net/dev/api/endpoints/2#users-get-59)
 
 ```javascript
 Be.userFollowing(id, opts, function(err, res, data) {
@@ -169,7 +160,6 @@ Be.userWorkExperience(id, function(err, res, data) {
 
 ###Collections
 Search for collections.  
-[Collections Options](https://www.behance.net/dev/api/endpoints/5#collections-get-15)
 
 ```javascript
 Be.collections(opts, function(err, res, data) {
@@ -191,7 +181,6 @@ Be.collection(id, function(err, res, data) {
 
 ###Collection Projects
 Get projects from a collection.  
-[Collection Projects Options](https://www.behance.net/dev/api/endpoints/5#collections-get-19)
 
 ```javascript
 Be.collectionProjects(id, opts, function(err, res, data) {
@@ -203,7 +192,6 @@ Be.collectionProjects(id, opts, function(err, res, data) {
 
 ###Creatives to Follow
 Provides a list of creatives you might be interested in following.  
-[Creatieves to Follow Options](https://www.behance.net/dev/api/endpoints/9#creatives-to-follow-get-69)
 
 ```javascript
 Be.creativesToFollow(opts, function(err, res, data) {
