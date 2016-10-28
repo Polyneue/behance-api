@@ -199,3 +199,6 @@ Be.fields(function(err, res, data) {
 	console.dir(data);
 });
 ```
+
+##To do
+- Write validation for queries passed to each function.
