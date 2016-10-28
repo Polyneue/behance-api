@@ -30,8 +30,6 @@ The snippet above will make a request to the Behance API and receive the first p
 
 
 ##Projects Endpoint
-
-###Projects
 Search for projects.  
 
 ```javascript
@@ -62,8 +60,6 @@ Be.projectComments(id, function(err, res, data) {
 ```
 
 ##Users Endpoint
-
-###Users
 Search for users.  
 
 ```javascript
@@ -157,8 +153,6 @@ Be.userWorkExperience(id, function(err, res, data) {
 ```
 
 ##Collections Endpoint
-
-###Collections
 Search for collections.  
 
 ```javascript
@@ -189,8 +183,6 @@ Be.collectionProjects(id, opts, function(err, res, data) {
 ```
 
 ##Creatives To Follow Endpoint
-
-###Creatives to Follow
 Provides a list of creatives you might be interested in following.  
 
 ```javascript
@@ -200,8 +192,6 @@ Be.creativesToFollow(opts, function(err, res, data) {
 ```
 
 ##Creative Fields Endpoint
-
-###Creative Fields
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
