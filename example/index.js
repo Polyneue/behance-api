@@ -16,10 +16,10 @@ var fs = require('fs');
 // });
 
 // Get Project
-Be.project('4889175', function(err, res, data) {
-	// console.dir(data);
-	fs.writeFile('../test/api-responses/project.json', JSON.stringify(data, null, 4));
-});
+// Be.project('4889175', function(err, res, data) {
+// 	console.dir(data);
+// 	// fs.writeFile('../test/api-responses/project.json', JSON.stringify(data, null, 4));
+// });
 
 // Get Project Comments
 // Be.projectComments('4889175', {page: '1'}, function(err, res, data) {
@@ -51,7 +51,7 @@ Be.project('4889175', function(err, res, data) {
 // Get User Projects
 // Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
 // 	console.dir(data);
-// 	fs.writeFile('../test/api-responses/userProjects.json', JSON.stringify(data, null, 4));
+// 	// fs.writeFile('../test/api-responses/userProjects.json', JSON.stringify(data, null, 4));
 // });
 
 // Get User Wips

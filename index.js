@@ -81,7 +81,7 @@ endpointWithOptionOnly.forEach(function(def) {
 	Behance.prototype[def.name] = function(opts, cb) {
 		var endpoint = def.path;
 		this.requestHandler(this.buildUrl(endpoint, opts), cb);
-	}
+	};
 });
 
 
@@ -114,9 +114,13 @@ endpointWithOnlyAnId.forEach(function(def) {
 	 * @param {function} cb - callback
 	 */
 	Behance.prototype[def.name] = function(id, cb) {
+		if (arguments.length !== 2) {
+			throw new Error('.' + def.name + ' requires both an id and a callback function.');
+		}
+		
 		var endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
 		this.requestHandler(this.buildUrl(endpoint), cb);
-	}
+	};
 });
 
 
@@ -165,9 +169,12 @@ endpointWithIdAndOptions.forEach(function(def) {
 	 * @param {function} cb - callback
 	 */
 	Behance.prototype[def.name] = function(id, opts, cb) {
+		if (arguments.length < 2) {
+			throw new Error('.' + def.name + ' requires at least an id and a callback function.');
+		}
 		var endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
 		this.requestHandler(this.buildUrl(endpoint, opts), cb);
-	}
+	};
 });
 
 
