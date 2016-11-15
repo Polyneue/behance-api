@@ -13,6 +13,9 @@
 		"color_range": "", 
 		"license": ""
 	},
+	"projectComments": {
+		"page": ""
+	},
 	"creativesToFollow": {
 		"page": ""
 	},
@@ -26,10 +29,46 @@
 		"sort": "",
 		"tags": ""
 	},
+	"userProjects": {
+		"sort": "",
+		"time": "",
+		"page": ""
+	},
+	"userWips": {
+		"sort": "",
+		"time": "",
+		"page": ""
+	},
+	"userAppreciations": {
+		"page": ""
+	},
+	"userCollections": {
+		"sort": "",
+		"time": "",
+		"page": ""
+	},
+	"userFollowers": {
+		"sort": "",
+		"page": "",
+		"sort_order": "",
+		"per_page": ""
+	},
+	"userFollowing": {
+		"sort": "",
+		"page": "",
+		"sort_order": "",
+		"per_page": ""
+	},
 	"collections": {
 		"q": "",
 		"time": "",
 		"page": "",
 		"sort": ""
+	},
+	"collectionProjects": {
+		"sort": "",
+		"time": "",
+		"page": "",
+		"per_page": ""		
 	}
 }

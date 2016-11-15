@@ -86,6 +86,7 @@ describe('behance-api', function() {
 
 		/**
 		 * Instantiate Behance without a Key
+		 * @public
 		 */
 		describe('new Behance()', function() {
 			it('Throw an error when no API key is given', function(done) {
@@ -110,9 +111,9 @@ describe('behance-api', function() {
 		  	 * Test that fields responds Correctly
 		  	 */
 		  	it('Return an object that contains field and popular arrays', function(done) {
-		  		Be.fields(function(err, res, body) {
-		  			expect(body).to.have.property('fields');
-		  			expect(body).to.have.property('popular');
+		  		Be.fields(function(err, res, data) {
+		  			expect(data).to.have.property('fields');
+		  			expect(data).to.have.property('popular');
 		  			done();
 		  		});
 		  	});
@@ -134,8 +135,8 @@ describe('behance-api', function() {
 		  	 * Test that endpoints that use options respond correctly
 		  	 */
 		  	it('Return an object that contains projects array', function(done) {
-		  		Be.projects({q: 'motorcycle'}, function(err, res, body) {
-		  			expect(body).to.have.property('projects');
+		  		Be.projects({q: 'motorcycle'}, function(err, res, data) {
+		  			expect(data).to.have.property('projects');
 		  			done();
 		  		});
 		  	});
@@ -157,17 +158,17 @@ describe('behance-api', function() {
 		  	 * Test that endpoints with IDs respond correctly
 		  	 */
 		  	it('Return an object that contains a specific projects information', function(done) {
-		  		Be.project('4889175', function(err, res, body) {
-		  			expect(body).to.have.property('project');
-		  			expect(body).to.have.deep.property('project.id', 4889175);
+		  		Be.project('4889175', function(err, res, data) {
+		  			expect(data).to.have.property('project');
+		  			expect(data).to.have.deep.property('project.id', 4889175);
 		  			done();
 		  		});
 		  	});
 		  	/**
 		  	 * Test that an Error is thrown when no ID is provided
 		  	 */
-		  	 it('Throw an error when no ID is provided', function(done) {
-		  	 	var fn = function() { Be.project(function(err, res, body){}); }
+		  	 it('Throw an error when required params aren\'t present', function(done) {
+		  	 	var fn = function() { Be.project(function(err, res, data){}); }
 		  	 	expect(fn).to.throw(Error);
 		  	 	done();
 		  	 });
@@ -178,7 +179,7 @@ describe('behance-api', function() {
 		 * Note: Using Be.userProjects but this should cover all endpoints that require both an ID and Options
 		 * @public
 		 */
-		describe('Be.userProjects -- Endpoint that require at least an ID and have Options', function() {
+		describe('Be.userProjects -- Endpoint that requires an ID, Options, and a CB', function() {
 		  	beforeEach(function() {
 		  		nock('https://api.behance.net')
 		  			.get('/v2/users/edmendoza3/projects')
@@ -189,10 +190,18 @@ describe('behance-api', function() {
 		  	 * Test that endpoints with IDs and Options respond correctly
 		  	 */
 		  	it('Return an object that contains a users project list', function(done) {
-		  		Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, body) {
-		  			expect(body).to.have.property('projects');
+		  		Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
+		  			expect(data).to.have.property('projects');
 		  			done();
 		  		});
+		  	});
+		  	/**
+		  	 * Test an error when no ID is provided
+		  	 */
+		  	it('Throw an error when required params aren\'t present', function(done) {
+		  		var fn = function() { Be.userProjects({sort: 'appreciations'}, function(err, res, data){}); };
+		  		expect(fn).to.throw(Error);
+		  		done();
 		  	});
 		});
 	});

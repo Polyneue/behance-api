@@ -38,3 +38,6 @@ jspm_packages
 
 # API Key
 api.json
+
+# Example JSON Output File
+example/projectsData.json

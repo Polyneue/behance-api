@@ -9,6 +9,7 @@ const
 /**
  * Endpoint and Query Builder
  * @param {string} endpoint - endpoint to query
+ * @param {string} token - API token
  * @param {object} options - Queries
  * @api private
  */
@@ -102,7 +103,7 @@ endpointWithOptionOnly.forEach(function(def) {
 		let _this = this,
 			endpoint = def.path;
 
-		if (compareKeys(opts, def.queries, def.name)) {
+		if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
 			requestHandler(requestUrl(endpoint, _this.clientId, opts), cb);
 		}
 	};
@@ -154,35 +155,43 @@ endpointWithOnlyAnId.forEach(function(def) {
 const endpointWithIdAndOptions = [{
 	name: 'projectComments',
 	pathprefix: 'projects/',
-	pathsuffix: '/comments'
+	pathsuffix: '/comments',
+	queries: queryValidation.projectComments
 }, {
 	name: 'userProjects',
 	pathprefix: 'users/',
-	pathsuffix: '/projects'
+	pathsuffix: '/projects',
+	queries: queryValidation.userProjects
 }, {
 	name: 'userWips',
 	pathprefix: 'users/',
-	pathsuffix: '/wips'
+	pathsuffix: '/wips',
+	queries: queryValidation.userWips
 }, {
 	name: 'userAppreciations',
 	pathprefix: 'users/',
-	pathsuffix: '/appreciations'
+	pathsuffix: '/appreciations',
+	queries: queryValidation.userAppreciations
 }, {
 	name: 'userCollections',
 	pathprefix: 'users/',
-	pathsuffix: '/collections'
+	pathsuffix: '/collections',
+	queries: queryValidation.userCollections
 }, {
 	name: 'userFollowers',
 	pathprefix: 'users/',
-	pathsuffix: '/followers'
+	pathsuffix: '/followers',
+	queries: queryValidation.userFollowers
 }, {
 	name: 'userFollowing',
 	pathprefix: 'users/',
-	pathsuffix: '/following'
+	pathsuffix: '/following',
+	queries: queryValidation.userFollowing
 }, {
 	name: 'collectionProjects',
 	pathprefix: 'collections/',
-	pathsuffix: '/projects'
+	pathsuffix: '/projects',
+	queries: queryValidation.collectionProjects
 }];
 
 endpointWithIdAndOptions.forEach(function(def) {
@@ -195,21 +204,32 @@ endpointWithIdAndOptions.forEach(function(def) {
 	Behance.prototype[def.name] = function(id, opts, cb) {
 		let _this = this,
 			endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+
+		// Update Params order if options aren't supplied
+		if (arguments.length === 2) {
+			cb = arguments[1];
+			opts = {};
+			id = arguments[0];
+		}
 		
-		if (arguments.length < 2) {
-			throw Error('.' + def.name + ' requires at least an id and a callback function.');
+		if (id === '' || typeof id === 'object') {
+			throw Error('.' + def.name + ' requires an id');
 		}
 
-		requestHandler(requestUrl(endpoint, _this.clientId, opts), cb);
+		if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
+			requestHandler(requestUrl(endpoint, _this.clientId, opts), cb);
+		}
 	};
 });
 
 /**
  * Get Creative Fields
+ * @param {function} cb - callback
  */
 Behance.prototype.fields = function(cb) {
 	let _this = this,
 		endpoint = 'fields';
+
 	requestHandler(requestUrl(endpoint, _this.clientId), cb);
 };
 
