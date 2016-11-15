@@ -37,7 +37,7 @@ The snippet above will make a request to the Behance API and receive the first p
 
 ##API  
 
-##Projects Endpoint
+###Projects Endpoint
 Search for projects.  
 
 ```javascript
