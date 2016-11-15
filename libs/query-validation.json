@@ -1,0 +1,35 @@
+{
+	"projects": {
+		"q": "", 
+		"sort": "", 
+		"time": "", 
+		"field": "", 
+		"country": "", 
+		"state": "", 
+		"city": "", 
+		"page": "", 
+		"tags": "", 
+		"color_hex": "", 
+		"color_range": "", 
+		"license": ""
+	},
+	"creativesToFollow": {
+		"page": ""
+	},
+	"users": {
+		"q": "",
+		"field": "",
+		"country": "",
+		"state": "",
+		"city": "",
+		"page": "",
+		"sort": "",
+		"tags": ""
+	},
+	"collections": {
+		"q": "",
+		"time": "",
+		"page": "",
+		"sort": ""
+	}
+}

@@ -4,16 +4,16 @@
 var Behance = require('../index.js');
 
 // Create an Instance of Behance with API Key
-var key = require('../api.json').key;
+var key = 1234;
 var Be = new Behance(key);
 
 var fs = require('fs');
 
 // Get Projects
-// Be.projects({q: 'motorcycle'}, function(err, res, data) {
-// 	console.dir(data);
-// 	fs.writeFile('../test/api-responses/projects.json', JSON.stringify(data, null, 4));
-// });
+Be.projects({q: 'motorcycle'}, function(err, res, data) {
+	console.dir(err);
+	// fs.writeFile('../test/api-responses/projects.json', JSON.stringify(data, null, 4));
+});
 
 // Get Project
 // Be.project('4889175', function(err, res, data) {
