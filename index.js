@@ -16,7 +16,7 @@ const
 function requestUrl(endpoint, token, options) {
 	let query = '?' + (options ? qs.stringify(options) + '&' : '') + 'client_id=' + token;
 	return 'https://api.behance.net/v2/' + endpoint + query;
-};
+}
 
 /**
  * Request Handler

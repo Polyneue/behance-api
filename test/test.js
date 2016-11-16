@@ -59,7 +59,7 @@ describe('behance-api: private functions', function() {
 		});
 
 		it('Error on invalid keys', function(done) {
-		 	var fn = function() { _compareKeys({q: ""}, {sort: ""}, 'Test Function'); }
+		 	var fn = function() { _compareKeys({q: ""}, {sort: ""}, 'Test Function'); };
 		 	expect(fn).to.throw(Error);
 		 	done();
 		});
@@ -72,7 +72,7 @@ describe('behance-api: public functions', function() {
 	// new Behance();
 	describe('new Behance()', function() {
 		it('Error without an API key', function(done) {
-			var fn = function() { var Beh = new Behance(); }
+			var fn = function() { var Beh = new Behance(); };
 			expect(fn).to.throw(Error);
 			done();
 		});
@@ -131,7 +131,7 @@ describe('behance-api: public functions', function() {
 	  	});
 	  	
 	  	it('Error when no ID is provided', function(done) {
-	  	 	var fn = function() { Be.project(function(err, res, data){}); }
+	  	 	var fn = function() { Be.project(function(err, res, data){}); };
 	  	 	expect(fn).to.throw(Error);
 	  	 	done();
 	  	});
