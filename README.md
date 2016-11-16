@@ -5,14 +5,14 @@
 
 Node.js wrapper for the Behance API, see the [Behance API docs](https://www.behance.net/dev/api/endpoints/) for more details. In order to use the Behance API you will need to [register your application](https://www.behance.net/dev/register) to receive your API key. 
 
-##Installation
+## Installation
 Install package with NPM
 
 ```
 npm install behance-api --save
 ```
 
-##Usage
+## Usage
 Making a request looks something like this:
 
 ```javascript
@@ -37,9 +37,9 @@ Be.projects({q: 'motorcycle'}, function(err, res, data) {
 
 The snippet above will make a request to the Behance API and receive the first page of results that match the `motorcycle` query for the `/projects/` endpoint. It then saves that data to a json file to be used. Every callback gets three arguments; an error (if there is one), the HTTP response, and a JSON object.
 
-##API  
+## API  
 
-###Projects Endpoint
+### Projects Endpoint
 Search for projects.  
 
 ```javascript
@@ -48,7 +48,7 @@ Be.projects(opts, function(err, res, data) {
 });
 ```
 
-###Project Endpoints
+### Project Endpoints
 All of the project related functions require a project `id`.
 
 ```javascript
@@ -63,7 +63,7 @@ Be.projectComments(id, function(err, res, data) {
 });
 ```
 
-###Users Endpoint
+### Users Endpoint
 Search for users.  
 
 ```javascript
@@ -72,7 +72,7 @@ Be.users(opts, function(err, res, data) {
 });
 ```
 
-###User Endpoints
+### User Endpoints
 All of the user related functions require a user `id` or username.
 
 ```javascript
@@ -122,7 +122,7 @@ Be.userWorkExperience(id, function(err, res, data) {
 });
 ```
 
-###Collections Endpoint
+### Collections Endpoint
 Search for collections.  
 
 ```javascript
@@ -131,7 +131,7 @@ Be.collections(opts, function(err, res, data) {
 });
 ```
 
-###Collection Endpoints
+### Collection Endpoints
 All collection related functions require a collection `id`
 
 ```javascript
@@ -146,7 +146,7 @@ Be.collectionProjects(id, opts, function(err, res, data) {
 });
 ```
 
-###Creatives To Follow Endpoint
+### Creatives To Follow Endpoint
 Provides a list of creatives you might be interested in following.  
 
 ```javascript
@@ -155,7 +155,7 @@ Be.creativesToFollow(opts, function(err, res, data) {
 });
 ```
 
-###Creative Fields Endpoint
+### Creative Fields Endpoint
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
@@ -164,7 +164,7 @@ Be.fields(function(err, res, data) {
 });
 ```
 
-##Tests
+## Tests
 Run the tests with the following command:  
 
 ```
