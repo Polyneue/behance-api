@@ -9,18 +9,20 @@ Node.js wrapper for the Behance API, see the [Behance API docs](https://www.beha
 Install package with NPM
 
 ```
-npm install behance-api
+npm install behance-api --save
 ```
 
 ##Usage
 Making a request looks something like this:
 
 ```javascript
+// Dependencies
 const 
 	Behance = require('behance-api'),
 	Be = new Behance(API_KEY),
 	fs = require('fs');
 
+// Get Projects Data
 Be.projects({q: 'motorcycle'}, function(err, res, data) {
 	
 	// Handle Errors

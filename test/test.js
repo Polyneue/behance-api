@@ -19,190 +19,144 @@ const
 	projectsData = require('./api-responses/projects.json'),
 	projectData = require('./api-responses/project.json');
 
-// Begin Tests
-describe('behance-api', function() {
 
-	describe('Private', function() {
-		/**
-		 * requestHandler
-		 * @private
-		 */
-		describe('requestHandler', function() {
-			var _requestHandler = Behance.__get__('requestHandler');
-			/**
-			 * Should Throw an Error
-			 */
-			 it('Throw Error when API returns forbidden', function(done) {
-			 	_requestHandler('https://api.behance.net/v2/projects?q=motorcycle?client_id=' + key, function(err) {
-			 		expect(err).to.be.an('error');
-			 		done();
-			 	});
-			});
-		});
+// Test Private Functions
+describe('behance-api: private functions', function() {
+	
+	// Rewire private functions
+	var _requestHandler = Behance.__get__('requestHandler'),
+		_requestUrl = Behance.__get__('requestUrl'),
+		_compareKeys = Behance.__get__('compareKeys');
+		
+	// requestHandler
+	describe('requestHandler', function() {
 
-		/**
-		 * requestUrl
-		 * @private
-		 */
-		describe('requestUrl', function() {
-			/**
-			 * Validate that the url structure matches what the Behance API will expect.
-			 */
-			it('Should create a valid url from endpoint and query inputs', function(done) {
-				var _requestUrl = Behance.__get__('requestUrl');
-				var result = _requestUrl('projects', key, {q: 'motorcycle', time: 'month'});
-				expect(result).to.equal('https://api.behance.net/v2/projects?q=motorcycle&time=month&client_id=' + key);
-				done();
-			});
-		});
-
-		/**
-		 * compareKeys
-		 * @private
-		 */
-		describe('compareKeys', function() {
-		 	var _compareKeys = Behance.__get__('compareKeys');
-			/**
-			 * Return true when keys are all valid
-			 */
-			 it('Return true when keys are valid', function(done) {
-			 	var result = _compareKeys({sort:""}, {q: "", sort: ""}, 'Test Function');
-			 	expect(result).to.be.true;
-			 	done();
-			 });
-
-			 /**
-			  * Return false when key shouldn't be found
-			  */
-			 it('Throw error when keys are invalid', function(done) {
-			 	var fn = function() { _compareKeys({q: ""}, {sort: ""}, 'Test Function'); }
-			 	expect(fn).to.throw(Error);
-			 	done();
-			 });
+		it('Throw Error when API returns forbidden', function(done) {
+		 	_requestHandler('https://api.behance.net/v2/projects?q=motorcycle?client_id=' + key, function(err) {
+		 		expect(err).to.be.an('error');
+		 		done();
+		 	});
 		});
 	});
 
-	describe('Public', function() {
+	// requestUrl
+	describe('requestUrl', function() {
 
-		/**
-		 * Instantiate Behance without a Key
-		 * @public
-		 */
-		describe('new Behance()', function() {
-			it('Throw an error when no API key is given', function(done) {
-				var fn = function() { var Beh = new Behance(); }
-				expect(fn).to.throw(Error);
-				done();
-			});
+		it('Create a valid url from endpoint and query inputs', function(done) {
+			var result = _requestUrl('projects', key, {q: 'motorcycle', time: 'month'});
+			expect(result).to.equal('https://api.behance.net/v2/projects?q=motorcycle&time=month&client_id=' + key);
+			done();
+		});
+	});
+
+	// compareKeys
+	describe('compareKeys', function() {
+
+		it('Succeed with valid keys', function(done) {
+			var result = _compareKeys({sort:""}, {q: "", sort: ""}, 'Test Function');
+		 	expect(result).to.be.true;
+		 	done();
 		});
 
-		/**
-		 * Be.fields
-		 * @public
-		 */
-		describe('Be.fields (Endpoint for Fields)', function() {
-		  	beforeEach(function() {
-		  		nock('https://api.behance.net')
-		  			.get('/v2/fields')
-		  			.query({client_id: key})
-		  			.reply(200, fieldsData);
-		  	});
-		  	/**
-		  	 * Test that fields responds Correctly
-		  	 */
-		  	it('Return an object that contains field and popular arrays', function(done) {
-		  		Be.fields(function(err, res, data) {
-		  			expect(data).to.have.property('fields');
-		  			expect(data).to.have.property('popular');
-		  			done();
-		  		});
-		  	});
+		it('Error on invalid keys', function(done) {
+		 	var fn = function() { _compareKeys({q: ""}, {sort: ""}, 'Test Function'); }
+		 	expect(fn).to.throw(Error);
+		 	done();
 		});
+	});
+});
 
-		/**
-		 * Be.projects
-		 * Note: Using Be.projects but this should cover all endpoints that only accept Options
-		 * @public
-		 */
-		describe('Be.projects -- Endpoints that only accept Options', function() {
-		  	beforeEach(function() {
-		  		nock('https://api.behance.net')
-		  			.get('/v2/projects')
-		  			.query({q: 'motorcycle', client_id: key})
-		  			.reply(200, projectsData);
-		  	});
-		  	/**
-		  	 * Test that endpoints that use options respond correctly
-		  	 */
-		  	it('Return an object that contains projects array', function(done) {
-		  		Be.projects({q: 'motorcycle'}, function(err, res, data) {
-		  			expect(data).to.have.property('projects');
-		  			done();
-		  		});
-		  	});
-		});
+// Test Public Functions
+describe('behance-api: public functions', function() {
 
-		/**
-		 * Be.project
-		 * Note: Using Be.project but this should cover all endpoints that only accept an ID
-		 * @public
-		 */
-		 describe('Be.project -- Endpoints that require an ID', function() {
-		  	beforeEach(function() {
-		  		nock('https://api.behance.net')
-		  			.get('/v2/projects/4889175')
-		  			.query({client_id: key})
-		  			.reply(200, projectData);
-		  	});
-		  	/**
-		  	 * Test that endpoints with IDs respond correctly
-		  	 */
-		  	it('Return an object that contains a specific projects information', function(done) {
-		  		Be.project('4889175', function(err, res, data) {
-		  			expect(data).to.have.property('project');
-		  			expect(data).to.have.deep.property('project.id', 4889175);
-		  			done();
-		  		});
-		  	});
-		  	/**
-		  	 * Test that an Error is thrown when no ID is provided
-		  	 */
-		  	 it('Throw an error when required params aren\'t present', function(done) {
-		  	 	var fn = function() { Be.project(function(err, res, data){}); }
-		  	 	expect(fn).to.throw(Error);
-		  	 	done();
-		  	 });
+	// new Behance();
+	describe('new Behance()', function() {
+		it('Error without an API key', function(done) {
+			var fn = function() { var Beh = new Behance(); }
+			expect(fn).to.throw(Error);
+			done();
 		});
+	});
 
-		 /**
-		 * Be.userProjects
-		 * Note: Using Be.userProjects but this should cover all endpoints that require both an ID and Options
-		 * @public
-		 */
-		describe('Be.userProjects -- Endpoint that requires an ID, Options, and a CB', function() {
-		  	beforeEach(function() {
-		  		nock('https://api.behance.net')
-		  			.get('/v2/users/edmendoza3/projects')
-		  			.query({sort: 'appreciations', client_id: key})
-		  			.reply(200, userProjectsData);
-		  	});
-		  	/**
-		  	 * Test that endpoints with IDs and Options respond correctly
-		  	 */
-		  	it('Return an object that contains a users project list', function(done) {
-		  		Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
-		  			expect(data).to.have.property('projects');
-		  			done();
-		  		});
-		  	});
-		  	/**
-		  	 * Test an error when no ID is provided
-		  	 */
-		  	it('Throw an error when required params aren\'t present', function(done) {
-		  		var fn = function() { Be.userProjects({sort: 'appreciations'}, function(err, res, data){}); };
-		  		expect(fn).to.throw(Error);
-		  		done();
-		  	});
-		});
+	// Be.fields()
+	describe('Be.fields -- Endpoint for Fields', function() {
+	  	before(function() {
+	  		nock('https://api.behance.net')
+	  			.get('/v2/fields')
+	  			.query({client_id: key})
+	  			.reply(200, fieldsData);
+	  	});
+
+	  	it('Response contains field and popular arrays', function(done) {
+	  		Be.fields(function(err, res, data) {
+	  			expect(data).to.have.property('fields');
+	  			expect(data).to.have.property('popular');
+	  			done();
+	  		});
+	  	});
+	});
+
+	// Be.projects()
+	describe('Be.projects -- Endpoints that only accept Options', function() {
+	  	before(function() {
+	  		nock('https://api.behance.net')
+	  			.get('/v2/projects')
+	  			.query({q: 'motorcycle', client_id: key})
+	  			.reply(200, projectsData);
+	  	});
+
+	  	it('Response contains projects array', function(done) {
+	  		Be.projects({q: 'motorcycle'}, function(err, res, data) {
+	  			expect(data).to.have.property('projects');
+	  			done();
+	  		});
+	  	});
+	});
+
+	// Be.project()
+	describe('Be.project -- Endpoints that require an ID', function() {
+	  	before(function() {
+	  		nock('https://api.behance.net')
+	  			.get('/v2/projects/4889175')
+	  			.query({client_id: key})
+	  			.reply(200, projectData);
+	  	});  	
+
+	  	it('Response contains a specific projects information', function(done) {
+	  		Be.project('4889175', function(err, res, data) {
+	  			expect(data).to.have.property('project');
+	  			expect(data).to.have.deep.property('project.id', 4889175);
+	  			done();
+	  		});
+	  	});
+	  	
+	  	it('Error when no ID is provided', function(done) {
+	  	 	var fn = function() { Be.project(function(err, res, data){}); }
+	  	 	expect(fn).to.throw(Error);
+	  	 	done();
+	  	});
+	});
+
+	// Be.userProjects()
+	describe('Be.userProjects -- Endpoint that requires an ID, Options, and a CB', function() {
+	  	before(function() {
+	  		nock('https://api.behance.net')
+	  			.get('/v2/users/edmendoza3/projects')
+	  			.query({sort: 'appreciations', client_id: key})
+	  			.reply(200, userProjectsData);
+	  	});
+
+	  	it('Response contains a users project list', function(done) {
+	  		Be.userProjects('edmendoza3', {sort: 'appreciations'}, function(err, res, data) {
+	  			expect(data).to.have.property('projects');
+	  			done();
+	  		});
+	  	});
+
+	  	it('Error when no ID is provided', function(done) {
+	  		var fn = function() { Be.userProjects({sort: 'appreciations'}, function(err, res, data){}); };
+	  		expect(fn).to.throw(Error);
+	  		done();
+	  	});
 	});
 });

@@ -3,7 +3,7 @@
 // Dependencies
 const 
 	request = require('request'),
-	q = require('querystring'),
+	qs = require('qs'),
 	queryValidation = require('./libs/query-validation.json');
 
 /**
@@ -11,21 +11,18 @@ const
  * @param {string} endpoint - endpoint to query
  * @param {string} token - API token
  * @param {object} options - Queries
- * @api private
+ * @private
  */
 function requestUrl(endpoint, token, options) {
-	let _this = this,
-		query = '?' + (options ? q.stringify(options) + '&' : ''),
-		clientId = 'client_id=' + token;
-
-	return 'https://api.behance.net/v2/' + endpoint + query + clientId;
+	let query = '?' + (options ? qs.stringify(options) + '&' : '') + 'client_id=' + token;
+	return 'https://api.behance.net/v2/' + endpoint + query;
 };
 
 /**
  * Request Handler
  * @param {string} url - Requested Url
  * @param {function} cb - callback
- * @api private
+ * @private
  */
 function requestHandler(url, cb) {
 	request(url, function(err, res, data) {
@@ -47,7 +44,7 @@ function requestHandler(url, cb) {
  * @param {object} obj1 - object to compare
  * @param {object} obj2 - object to compare against
  * @return {bool}
- * @api private
+ * @private
  */
 function compareKeys(obj1, obj2, fn) {
 	for (var prop in obj1) {
@@ -62,19 +59,19 @@ function compareKeys(obj1, obj2, fn) {
 /**
  * Create an instance of Behance
  * @param {string} token - authentication for Behance API
+ * @public
  */
 var Behance = function(token) {
 	this.clientId = token;
 
 	// Throw an error if Auth Key is not specified
 	if (this.clientId === undefined) {
-		throw Error('Please supply an authorization token.');
+		throw Error('Please supply an authorization token for new Behance().');
 	}
 };
 
-/**
- * Endpoints that only support Options
- */
+
+// Endpoints that only support Options
 const endpointWithOptionOnly = [{
 	name: 'projects',
 	path: 'projects',
@@ -98,13 +95,11 @@ endpointWithOptionOnly.forEach(function(def) {
 	 * Get a list of projects/creatives/users/collections
 	 * @param {object} opts - queries
 	 * @param {function} cb - callback
+	 * @public
 	 */
 	Behance.prototype[def.name] = function(opts, cb) {
-		let _this = this,
-			endpoint = def.path;
-
 		if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-			requestHandler(requestUrl(endpoint, _this.clientId, opts), cb);
+			requestHandler(requestUrl(def.path, this.clientId, opts), cb);
 		}
 	};
 });
@@ -136,16 +131,16 @@ endpointWithOnlyAnId.forEach(function(def) {
 	 * Get info about a project/user/collection
 	 * @param {string} id - identifier 
 	 * @param {function} cb - callback
+	 * @public
 	 */
 	Behance.prototype[def.name] = function(id, cb) {
-		let _this = this,
-			endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+		let endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
 		
 		if (arguments.length !== 2) {
 			throw Error('.' + def.name + ' requires both an id and a callback function.');
 		}
 		
-		requestHandler(requestUrl(endpoint, _this.clientId), cb);
+		requestHandler(requestUrl(endpoint, this.clientId), cb);
 	};
 });
 
@@ -200,10 +195,10 @@ endpointWithIdAndOptions.forEach(function(def) {
 	 * @param {string} id - identifier 
 	 * @param {object} opts - queries
 	 * @param {function} cb - callback
+	 * @public
 	 */
 	Behance.prototype[def.name] = function(id, opts, cb) {
-		let _this = this,
-			endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+		let endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
 
 		// Update Params order if options aren't supplied
 		if (arguments.length === 2) {
@@ -213,11 +208,11 @@ endpointWithIdAndOptions.forEach(function(def) {
 		}
 		
 		if (id === '' || typeof id === 'object') {
-			throw Error('.' + def.name + ' requires an id');
+			throw Error('.' + def.name + ' requires at least an id and a callback function.');
 		}
 
 		if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-			requestHandler(requestUrl(endpoint, _this.clientId, opts), cb);
+			requestHandler(requestUrl(endpoint, this.clientId, opts), cb);
 		}
 	};
 });
@@ -225,12 +220,10 @@ endpointWithIdAndOptions.forEach(function(def) {
 /**
  * Get Creative Fields
  * @param {function} cb - callback
+ * @public
  */
 Behance.prototype.fields = function(cb) {
-	let _this = this,
-		endpoint = 'fields';
-
-	requestHandler(requestUrl(endpoint, _this.clientId), cb);
+	requestHandler(requestUrl('fields', this.clientId), cb);
 };
 
 module.exports = Behance;
