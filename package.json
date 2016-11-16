@@ -1,6 +1,6 @@
 {
   "name": "behance-api",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Node.js wrapper for the Behance API",
   "main": "index.js",
   "scripts": {
