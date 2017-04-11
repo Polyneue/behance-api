@@ -1,7 +1,7 @@
 'use strict';
 
 // Dependencies
-const 
+const
 	request = require('request'),
 	qs = require('qs'),
 	queryValidation = require('./libs/query-validation.json');
@@ -80,10 +80,14 @@ const endpointWithOptionOnly = [{
 	name: 'creativesToFollow',
 	path: 'creativestofollow',
 	queries: queryValidation.creativesToFollow
-}, { 
+}, {
 	name: 'users',
 	path: 'users',
 	queries: queryValidation.users
+},  {
+	name: 'teams',
+	path: 'teams',
+	queries: queryValidation.teams
 }, {
 	name: 'collections',
 	path: 'collections',
@@ -113,6 +117,9 @@ const endpointWithOnlyAnId = [{
 }, {
 	name: 'user',
 	pathprefix: 'users/'
+},{
+	name: 'team',
+	pathprefix: 'teams/'
 }, {
 	name: 'userStats',
 	pathprefix: 'users/',
@@ -129,17 +136,17 @@ const endpointWithOnlyAnId = [{
 endpointWithOnlyAnId.forEach(function(def) {
 	/**
 	 * Get info about a project/user/collection
-	 * @param {string} id - identifier 
+	 * @param {string} id - identifier
 	 * @param {function} cb - callback
 	 * @public
 	 */
 	Behance.prototype[def.name] = function(id, cb) {
 		let endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
-		
+
 		if (arguments.length !== 2) {
 			throw Error('.' + def.name + ' requires both an id and a callback function.');
 		}
-		
+
 		requestHandler(requestUrl(endpoint, this.clientId), cb);
 	};
 });
@@ -157,6 +164,11 @@ const endpointWithIdAndOptions = [{
 	pathprefix: 'users/',
 	pathsuffix: '/projects',
 	queries: queryValidation.userProjects
+}, {
+	name: 'teamProjects',
+	pathprefix: 'teams/',
+	pathsuffix: '/projects',
+	queries: queryValidation.teamsProjects
 }, {
 	name: 'userWips',
 	pathprefix: 'users/',
@@ -192,7 +204,7 @@ const endpointWithIdAndOptions = [{
 endpointWithIdAndOptions.forEach(function(def) {
 	/**
 	 * Get a list of comments/projects/wips/appreciations/collections/followers
-	 * @param {string} id - identifier 
+	 * @param {string} id - identifier
 	 * @param {object} opts - queries
 	 * @param {function} cb - callback
 	 * @public
@@ -206,7 +218,7 @@ endpointWithIdAndOptions.forEach(function(def) {
 			opts = {};
 			id = arguments[0];
 		}
-		
+
 		if (id === '' || typeof id === 'object') {
 			throw Error('.' + def.name + ' requires at least an id and a callback function.');
 		}

@@ -1,16 +1,16 @@
 {
 	"projects": {
-		"q": "", 
-		"sort": "", 
-		"time": "", 
-		"field": "", 
-		"country": "", 
-		"state": "", 
-		"city": "", 
-		"page": "", 
-		"tags": "", 
-		"color_hex": "", 
-		"color_range": "", 
+		"q": "",
+		"sort": "",
+		"time": "",
+		"field": "",
+		"country": "",
+		"state": "",
+		"city": "",
+		"page": "",
+		"tags": "",
+		"color_hex": "",
+		"color_range": "",
 		"license": ""
 	},
 	"projectComments": {
@@ -30,6 +30,21 @@
 		"tags": ""
 	},
 	"userProjects": {
+		"sort": "",
+		"time": "",
+		"page": ""
+	},
+	"teams": {
+		"q": "",
+		"field": "",
+		"country": "",
+		"state": "",
+		"city": "",
+		"page": "",
+		"sort": "",
+		"tags": ""
+	},
+	"teamsProjects": {
 		"sort": "",
 		"time": "",
 		"page": ""
@@ -69,6 +84,6 @@
 		"sort": "",
 		"time": "",
 		"page": "",
-		"per_page": ""		
+		"per_page": ""
 	}
 }

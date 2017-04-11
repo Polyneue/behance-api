@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Polyneue/behance-api/badge.svg?branch=master)](https://coveralls.io/github/Polyneue/behance-api?branch=master)
 [![bitHound Dependencies](https://www.bithound.io/github/Polyneue/behance-api/badges/dependencies.svg)](https://www.bithound.io/github/Polyneue/behance-api/master/dependencies/npm)  
 
-Node.js wrapper for the Behance API, see the [Behance API docs](https://www.behance.net/dev/api/endpoints/) for more details. In order to use the Behance API you will need to [register your application](https://www.behance.net/dev/register) to receive your API key. 
+Node.js wrapper for the Behance API, see the [Behance API docs](https://www.behance.net/dev/api/endpoints/) for more details. In order to use the Behance API you will need to [register your application](https://www.behance.net/dev/register) to receive your API key.
 
 ## Installation
 Install package with NPM
@@ -17,16 +17,16 @@ Making a request looks something like this:
 
 ```javascript
 // Dependencies
-const 
+const
 	Behance = require('behance-api'),
 	Be = new Behance(API_KEY),
 	fs = require('fs');
 
 // Get Projects Data
 Be.projects({q: 'motorcycle'}, function(err, res, data) {
-	
+
 	// Handle Errors
-	if (err) { 
+	if (err) {
 		throw err;
 	}
 
@@ -71,6 +71,7 @@ Be.users(opts, function(err, res, data) {
 	console.dir(data);
 });
 ```
+
 
 ### User Endpoints
 All of the user related functions require a user `id` or username.
@@ -121,6 +122,32 @@ Be.userWorkExperience(id, function(err, res, data) {
 	console.dir(data);
 });
 ```
+
+### Teams Endpoint
+Search for teams.  
+
+```javascript
+Be.teams(opts, function(err, res, data) {
+	console.dir(data);
+});
+```
+
+
+### Team Endpoints
+All of the team related functions require a team `id` or username.
+
+```javascript
+// Get basic information about a team.
+Be.team(id, function(err, res, data) {
+	console.dir(data);
+});
+
+// Get the projects published by a team.  
+Be.teamProjects(id, opts, function(err, res, data) {
+	console.dir(data);
+});
+```
+
 
 ### Collections Endpoint
 Search for collections.  
