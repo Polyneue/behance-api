@@ -17,22 +17,18 @@ Making a request looks something like this:
 
 ```javascript
 // Dependencies
-const 
-	Behance = require('behance-api'),
-	Be = new Behance(API_KEY),
-	fs = require('fs');
+const Behance = require('behance-api')
+const Be = new Behance(API_KEY)
+const fs = require('fs')
 
 // Get Projects Data
-Be.projects({q: 'motorcycle'}, function(err, res, data) {
-	
-	// Handle Errors
-	if (err) { 
-		throw err;
-	}
+Be.projects({q: 'motorcycle'}, function (err, res, data) {
+  // Handle Errors
+  if (err) throw err
 
-	// Do something with the data received from the API
-	fs.writeFile('projectsData.json', JSON.stringify(data, null, 4));
-});
+  // Do something with the data received from the API
+  fs.writeFile('projectsData.json', JSON.stringify(data, null, 4))
+})
 ```
 
 The snippet above will make a request to the Behance API and receive the first page of results that match the `motorcycle` query for the `/projects/` endpoint. It then saves that data to a json file to be used. Every callback gets three arguments; an error (if there is one), the HTTP response, and a JSON object.
@@ -43,9 +39,9 @@ The snippet above will make a request to the Behance API and receive the first p
 Search for projects.  
 
 ```javascript
-Be.projects(opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.projects(opts, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Project Endpoints
@@ -53,23 +49,23 @@ All of the project related functions require a project `id`.
 
 ```javascript
 // Get the information and content of a project.  
-Be.project(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.project(id, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get the comments for a project.   
-Be.projectComments(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.projectComments(id, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Users Endpoint
 Search for users.  
 
 ```javascript
-Be.users(opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.users(opts, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### User Endpoints
@@ -77,58 +73,58 @@ All of the user related functions require a user `id` or username.
 
 ```javascript
 // Get basic information about a user.
-Be.user(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.user(id, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get the projects published by a user.  
-Be.userProjects(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.userProjects(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get the works-in-progress published by a user.  
-Be.userWips(id, opts, function(err, res, data) {
-	console.dir(data);
+Be.userWips(id, opts, function (err, res, data) {
+  console.dir(data)
 })
 
 // Get a list of user's recently appreciated projects.  
-Be.userApprecitations(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.userApprecitations(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get a list of a user's collections.  
-Be.userCollections(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.userCollections(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get statistics (all-time and today) for a specific user. Includes number of project views, appreciations, comments, and profile views.
-Be.userStats(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.userStats(id, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get a list of creatives who follow the user.  
-Be.userFollowers(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.userFollowers(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get a list of creatives followed by the user.  
-Be.userFollowing(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.userFollowing(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 
 // A list of the user's professional experience
-Be.userWorkExperience(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.userWorkExperience(id, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Collections Endpoint
 Search for collections.  
 
 ```javascript
-Be.collections(opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.collections(opts, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Collection Endpoints
@@ -136,32 +132,32 @@ All collection related functions require a collection `id`
 
 ```javascript
 // Get basic information about a collection.
-Be.collection(id, function(err, res, data) {
-	console.dir(data);
-});
+Be.collection(id, function (err, res, data) {
+  console.dir(data)
+})
 
 // Get projects from a collection.  
-Be.collectionProjects(id, opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.collectionProjects(id, opts, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Creatives To Follow Endpoint
 Provides a list of creatives you might be interested in following.  
 
 ```javascript
-Be.creativesToFollow(opts, function(err, res, data) {
-	console.dir(data);
-});
+Be.creativesToFollow(opts, function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ### Creative Fields Endpoint
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
-Be.fields(function(err, res, data) {
-	console.dir(data);
-});
+Be.fields(function (err, res, data) {
+  console.dir(data)
+})
 ```
 
 ## Tests
