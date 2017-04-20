@@ -1,4 +1,11 @@
-# behance-api
+<div style="display:block; width: 100%; float:left; margin-bottom: 10px;">
+  <div style="float:left"><h1 style="margin-bottom: 0;">behance-api</h1></div>
+  <div style="float:right">
+  	<img src="./PbyBehance-vertical-145px.png" width="165px" height="61px" />
+  </div>
+</div>
+
+
 [![Build Status](https://travis-ci.org/Polyneue/behance-api.svg?branch=master)](https://travis-ci.org/Polyneue/behance-api)
 [![Coverage Status](https://coveralls.io/repos/github/Polyneue/behance-api/badge.svg?branch=master)](https://coveralls.io/github/Polyneue/behance-api?branch=master)
 [![bitHound Dependencies](https://www.bithound.io/github/Polyneue/behance-api/badges/dependencies.svg)](https://www.bithound.io/github/Polyneue/behance-api/master/dependencies/npm)  
