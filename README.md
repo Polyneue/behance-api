@@ -1,5 +1,5 @@
 # behance-api
-<img src="./PbyBehance-vertical-145px.png" width="90px" />
+<img src="https://raw.githubusercontent.com/Polyneue/behance-api/master/PbyBehance-vertical-145px.png" width="90px" />
 
 [![Build Status](https://travis-ci.org/Polyneue/behance-api.svg?branch=master)](https://travis-ci.org/Polyneue/behance-api)
 [![Coverage Status](https://coveralls.io/repos/github/Polyneue/behance-api/badge.svg?branch=master)](https://coveralls.io/github/Polyneue/behance-api?branch=master)
@@ -125,7 +125,7 @@ Search for teams.
 
 ```javascript
 Be.teams(opts, function(err, res, data) {
-	console.dir(data)
+  console.dir(data)
 })
 ```
 
@@ -135,12 +135,12 @@ All of the team related functions require a team `id` or username.
 ```javascript
 // Get basic information about a team.
 Be.team(id, function (err, res, data) {
-	console.dir(data)
+  console.dir(data)
 })
 
 // Get the projects published by a team.  
 Be.teamProjects(id, opts, function (err, res, data) {
-	console.dir(data)
+  console.dir(data)
 })
 ```
 
