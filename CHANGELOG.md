@@ -53,7 +53,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 * Initial setup of README, Packages, and License for repo and npm.
 
-[1.1.0]: https://github.com/Polyneue/behance-api/compare/v1.1.0...HEAD
+[1.1.1]: https://github.com/Polyneue/behance-api/compare/v1.1.1...HEAD
+[1.1.0]: https://github.com/Polyneue/behance-api/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Polyneue/behance-api/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/Polyneue/behance-api/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Polyneue/behance-api/compare/v0.1.0...v0.1.1
