@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0] - 2017-04-19
+### Added
+* Linting for coding standards (standardjs)
+* Added logo per Behance branding guidelines
+* `Be.teams()` for the teams endpoint
+* `Be.team()` - team endpoint
+* `Be.teamProjects()` - team projects endpoint
+
+### Changed
+* team endoints added to readme
+* updated travis file to only run on develop or master
 
 ## [1.0.0] - 2016-11-16
 ### Added
@@ -37,7 +48,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 * Initial setup of README, Packages, and License for repo and npm.
 
-[1.0.0]: https://github.com/Polyneue/behance-api/compare/v1.0.0...HEAD
+[1.1.0]: https://github.com/Polyneue/behance-api/compare/v1.1.0...HEAD
+[1.0.0]: https://github.com/Polyneue/behance-api/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/Polyneue/behance-api/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Polyneue/behance-api/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Polyneue/behance-api/compare/v0.0.2...v0.1.0
