@@ -1,0 +1,175 @@
+{
+  "team": {
+    "id": 42791,
+    "name": "Golden Ratio Lovers",
+    "url": "http://www.behance.net/Goldenratiolovers",
+    "display_name": "Golden Ratio Lovers",
+    "website": "fb.com/GoldenRatioLovers",
+    "slug": "Goldenratiolovers",
+    "images": {
+      "50": "https://mir-s3-cdn-cf.behance.net/team/50/d3f43842791.55896986084e7.png",
+      "100": "https://mir-s3-cdn-cf.behance.net/team/100/d3f43842791.55896986084e7.png",
+      "115": "https://mir-s3-cdn-cf.behance.net/team/115/d3f43842791.55896986084e7.png",
+      "138": "https://mir-s3-cdn-cf.behance.net/team/138/d3f43842791.55896986084e7.png",
+      "230": "https://mir-s3-cdn-cf.behance.net/team/230/d3f43842791.55896986084e7.png",
+      "276": "https://mir-s3-cdn-cf.behance.net/team/276/d3f43842791.55896986084e7.png"
+    },
+    "location": "Chapecó, Brazil",
+    "location_link": "/search?content=teams&sort=appreciations&country=BR&city=Chapec%C3%B3",
+    "state": "",
+    "country": "Brazil",
+    "city": "Chapecó",
+    "created_on": 1435068805,
+    "featured_on": "2014-07-30 03:30:01",
+    "is_following": 0,
+    "about": "We are passionate about fibonacci spiral. Every project that uses the golden ratio is welcome.",
+    "is_verified": 0,
+    "invite_only": 0,
+    "stats": {
+      "members": 40,
+      "projects": 159,
+      "wips": 0,
+      "followers": 1116,
+      "appreciations": 58010,
+      "views": 810575,
+      "hideFollowing": true,
+      "jobs": 0
+    },
+    "features": [
+      {
+        "site": {
+          "id": 1,
+          "name": "Behance.net",
+          "key": "net",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/site/favicon.ico",
+          "url": "http://www.behance.net",
+          "domain": "www.behance.net",
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/1x/network.png",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/2x/network@2x.png"
+          },
+          "featured_on": "2014-07-30 03:30:01"
+        }
+      },
+      {
+        "site": {
+          "id": 29,
+          "parent_id": 2,
+          "name": "Graphic Design",
+          "key": "branding",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/gallery-2.png?cb=264615658",
+          "app_icon": "?cb=264615658",
+          "domain": "brandingserved.com",
+          "url": "https://www.behance.net/galleries/2/Graphic-Design",
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/1x/ribbons/graphic-design.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/2x/ribbons/graphic-design.png?cb=264615658"
+          },
+          "featured_on": "2017-03-11 14:00:05"
+        }
+      },
+      {
+        "site": {
+          "id": 15,
+          "parent_id": 1,
+          "name": "Illustration",
+          "key": "digitalart",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/gallery-1.png?cb=264615658",
+          "app_icon": "?cb=264615658",
+          "domain": "digitalartserved.com",
+          "url": "https://www.behance.net/galleries/1/Illustration",
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/1x/ribbons/illustration.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/2x/ribbons/illustration.png?cb=264615658"
+          },
+          "featured_on": "2015-02-01 11:30:02"
+        }
+      },
+      {
+        "site": {
+          "id": 8,
+          "parent_id": 8,
+          "name": "Interaction",
+          "key": "webdesign",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/gallery-8.png?cb=264615658",
+          "app_icon": "?cb=264615658",
+          "domain": "webdesignserved.com",
+          "url": "https://www.behance.net/galleries/8/Interaction",
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/1x/ribbons/interaction.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/shared_icons/png/2x/ribbons/interaction.png?cb=264615658"
+          },
+          "featured_on": "2015-12-29 15:30:01"
+        }
+      },
+      {
+        "site": {
+          "id": 34,
+          "name": "AIGA Member Gallery",
+          "key": "aiga",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/aiga.png?cb=264615658",
+          "url": "http://portfolios.aiga.org",
+          "domain": "portfolios.aiga.org",
+          "network_id": 5,
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/1x/aiga.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/2x/aiga@2x.png?cb=264615658"
+          },
+          "featured_on": "2014-07-18 19:00:01"
+        }
+      },
+      {
+        "site": {
+          "id": 157,
+          "name": "Wacom Gallery",
+          "key": "wacom",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/wacom.png?cb=264615658",
+          "url": "http://gallery.wacom.com",
+          "domain": "gallery.wacom.com",
+          "network_id": 43,
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/1x/wacom.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/2x/wacom@2x.png?cb=264615658"
+          },
+          "featured_on": "2016-01-19 09:00:02"
+        }
+      },
+      {
+        "site": {
+          "id": 77,
+          "name": "SVA Portfolios",
+          "key": "sva",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/sva.png?cb=264615658",
+          "url": "http://portfolios.sva.edu",
+          "domain": "portfolios.sva.edu",
+          "network_id": 11,
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/1x/sva.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/2x/sva@2x.png?cb=264615658"
+          },
+          "featured_on": "2016-03-06 13:30:02"
+        }
+      },
+      {
+        "site": {
+          "id": 131,
+          "name": "Pratt Portfolios",
+          "key": "pratt",
+          "icon": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/square/1x/pratt.png?cb=264615658",
+          "url": "http://portfolios.pratt.edu",
+          "domain": "portfolios.pratt.edu",
+          "network_id": 33,
+          "ribbon": {
+            "image": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/1x/pratt.png?cb=264615658",
+            "image_2x": "https://a5.behance.net/f69abc84e76ca8b2b48efefc84e2dad77f2bc1f2/img/galleries/icons/ribbons/2x/pratt@2x.png?cb=264615658"
+          },
+          "featured_on": "2016-02-27 22:30:02"
+        }
+      }
+    ],
+    "is_member": 0,
+    "links": [],
+    "social_links": []
+  },
+  "http_code": 200
+}

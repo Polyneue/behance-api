@@ -70,5 +70,20 @@
     "time": "",
     "page": "",
     "per_page": ""    
+  },
+  "teams": {
+    "q": "",
+    "field": "",
+    "country": "",
+    "state": "",
+    "city": "",
+    "page": "",
+    "sort": "",
+    "tags": ""
+  },
+  "teamProjects": {
+    "sort": "",
+    "time": "",
+    "page": ""
   }
 }

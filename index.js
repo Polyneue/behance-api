@@ -82,6 +82,10 @@ const endpointWithOptionOnly = [{
   path: 'users',
   queries: queryValidation.users
 }, {
+  name: 'teams',
+  path: 'teams',
+  queries: queryValidation.teams
+}, {
   name: 'collections',
   path: 'collections',
   queries: queryValidation.collections
@@ -110,6 +114,9 @@ const endpointWithOnlyAnId = [{
 }, {
   name: 'user',
   pathprefix: 'users/'
+}, {
+  name: 'team',
+  pathprefix: 'teams/'
 }, {
   name: 'userStats',
   pathprefix: 'users/',
@@ -159,6 +166,11 @@ const endpointWithIdAndOptions = [{
   pathprefix: 'users/',
   pathsuffix: '/wips',
   queries: queryValidation.userWips
+}, {
+  name: 'teamProjects',
+  pathprefix: 'teams/',
+  pathsuffix: '/projects',
+  queries: queryValidation.teamsProjects
 }, {
   name: 'userAppreciations',
   pathprefix: 'users/',
