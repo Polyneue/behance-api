@@ -37,7 +37,7 @@ describe('behance-api: private functions', function () {
   // requestUrl
   describe('requestUrl', function () {
     it('Create a valid url from endpoint and query inputs', function (done) {
-      var result = _requestUrl('projects', key, {q: 'motorcycle', time: 'month'})
+      const result = _requestUrl('projects', key, {q: 'motorcycle', time: 'month'})
       expect(result).to.equal('https://api.behance.net/v2/projects?q=motorcycle&time=month&client_id=' + key)
       done()
     })
@@ -126,7 +126,7 @@ describe('behance-api: public functions', function () {
     })
 
     it('Error when no ID is provided', function (done) {
-      var fn = function () {
+      const fn = function () {
         Be.project(function (err, res, data) {
           if (err) throw err
         })
@@ -154,7 +154,7 @@ describe('behance-api: public functions', function () {
     })
 
     it('Error when no ID is provided', function (done) {
-      var fn = function () {
+      const fn = function () {
         Be.userProjects({sort: 'appreciations'}, function (err, res, data) {
           if (err) throw err
         })
