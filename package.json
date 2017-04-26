@@ -13,7 +13,8 @@
   },
   "keywords": [
     "behance",
-    "api"
+    "api",
+    "wrapper"
   ],
   "author": "Ed Mendoza <polyneue@gmail.com> (http://www.edmendoza.com)",
   "license": "MIT",

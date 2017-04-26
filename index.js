@@ -45,7 +45,7 @@ function requestHandler (url, cb) {
  * @private
  */
 function compareKeys (obj1, obj2, fn) {
-  for (var prop in obj1) {
+  for (let prop in obj1) {
     if (!obj2.hasOwnProperty(prop)) {
       throw Error('property ' + prop + ' is not a valid query for ' + fn)
     } else {
@@ -59,7 +59,7 @@ function compareKeys (obj1, obj2, fn) {
  * @param {string} token - authentication for Behance API
  * @public
  */
-var Behance = function (token) {
+const Behance = function (token) {
   this.clientId = token
 
   // Throw an error if Auth Key is not specified
@@ -138,7 +138,7 @@ endpointWithOnlyAnId.forEach(function (def) {
    * @public
    */
   Behance.prototype[def.name] = function (id, cb) {
-    let endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
+    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
 
     if (arguments.length !== 2) {
       throw Error('.' + def.name + ' requires both an id and a callback function.')
@@ -207,7 +207,7 @@ endpointWithIdAndOptions.forEach(function (def) {
    * @public
    */
   Behance.prototype[def.name] = function (id, opts, cb) {
-    let endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
+    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
 
     // Update Params order if options aren't supplied
     if (arguments.length === 2) {
