@@ -13,7 +13,7 @@ Be.projects(opts, function (err, res, data) {
 ```
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1)
 
 ---
@@ -48,7 +48,7 @@ Be.users(opts, function (err, res, data) {
 ```
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2)
 
 ---
@@ -107,7 +107,7 @@ Be.userWorkExperience(id, function (err, res, data) {
 Type: `Number` || `String` (required)
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options, see [User Endpoints](https://www.behance.net/dev/api/endpoints/2)
 
 ---
@@ -122,7 +122,7 @@ Be.teams(opts, function(err, res, data) {
 ```
 
 #### opts
-Type: `Object`
+Type: `Object`  
 This is an undocumented endpoint.
 
 ---
@@ -146,7 +146,7 @@ Be.teamProjects(id, opts, function (err, res, data) {
 Type: `Number` (required)
 
 #### opts
-Type: `Object`
+Type: `Object`  
 This is an undocumented endpoint.
 
 ---
@@ -161,7 +161,7 @@ Be.collections(opts, function (err, res, data) {
 ```
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
 
 ---
@@ -185,7 +185,7 @@ Be.collectionProjects(id, opts, function (err, res, data) {
 Type: `Number` (required)
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
 
 ---
@@ -200,7 +200,7 @@ Be.creativesToFollow(opts, function (err, res, data) {
 ```
 
 #### opts
-Type: `Object`
+Type: `Object`  
 For a list of options, see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9)
 
 ---
