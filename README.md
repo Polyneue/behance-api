@@ -34,11 +34,7 @@ Be.projects({q: 'motorcycle'}, function (err, res, data) {
 The snippet above will make a request to the Behance API and receive the first page of results that match the `motorcycle` query for the `/projects/` endpoint. It then displays that data in the terminal. Every callback gets three arguments; an error (if there is one), the HTTP response, and a JSON object.
 
 ## API  
-To see documentation on all endpoints, see [API](https://github.com/Polyneue/behance-api/blob/master/docs/API.md)
+For documentation around accessing all of the endpoints, see [API Docs](https://github.com/Polyneue/behance-api/blob/master/docs/API.md)
 
-## Tests
-Run the tests with the following command:  
-
-```
-npm run test
-```
+## Examples
+For a working example, see [Example](https://github.com/Polyneue/behance-api/blob/master/example/index.js)

@@ -1,6 +1,7 @@
 # Behance API Documenation
-This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response visit the official [API site](https://www.behance.net/dev/api/endpoints/).
+This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response, visit the official [API site](https://www.behance.net/dev/api/endpoints/).
 
+---
 
 ### Projects Endpoint
 Search for projects.  
@@ -13,8 +14,9 @@ Be.projects(opts, function (err, res, data) {
 
 #### opts
 Type: `Object`
-To see a list of options see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1)
+For a list of options see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1)
 
+---
 
 ### Project Endpoints
 All of the project related functions require a project `id`.
@@ -34,6 +36,7 @@ Be.projectComments(id, function (err, res, data) {
 ### id
 Type: `Number` (required)
 
+---
 
 ### Users Endpoint
 Search for users.  
@@ -46,8 +49,9 @@ Be.users(opts, function (err, res, data) {
 
 #### opts
 Type: `Object`
-To see a list of options see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2)
+For a list of options see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2)
 
+---
 
 ### User Endpoints
 All of the user related functions require a user `id` or username.
@@ -104,8 +108,9 @@ Type: `Number` || `String` (required)
 
 #### opts
 Type: `Object`
-To see a list of options, see [User Endpoints](https://www.behance.net/dev/api/endpoints/2)
+For a list of options, see [User Endpoints](https://www.behance.net/dev/api/endpoints/2)
 
+---
 
 ### Teams Endpoint
 Search for teams.  
@@ -120,6 +125,7 @@ Be.teams(opts, function(err, res, data) {
 Type: `Object`
 This is an undocumented endpoint.
 
+---
 
 ### Team Endpoints
 All of the team related functions require a team `id` or username.
@@ -143,6 +149,7 @@ Type: `Number` (required)
 Type: `Object`
 This is an undocumented endpoint.
 
+---
 
 ### Collections Endpoint
 Search for collections.  
@@ -155,8 +162,9 @@ Be.collections(opts, function (err, res, data) {
 
 #### opts
 Type: `Object`
-To see a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
+For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
 
+---
 
 ### Collection Endpoints
 All collection related functions require a collection `id`
@@ -173,13 +181,14 @@ Be.collectionProjects(id, opts, function (err, res, data) {
 })
 ```
 
-#### Id
+#### id
 Type: `Number` (required)
 
-#### Opts
+#### opts
 Type: `Object`
-To see a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
+For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
 
+---
 
 ### Creatives To Follow Endpoint
 Provides a list of creatives you might be interested in following.  
@@ -192,8 +201,9 @@ Be.creativesToFollow(opts, function (err, res, data) {
 
 #### opts
 Type: `Object`
-To see a list of options, see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9)
+For a list of options, see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9)
 
+---
 
 ### Creative Fields Endpoint
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
@@ -203,3 +213,5 @@ Be.fields(function (err, res, data) {
   console.dir(data)
 })
 ```
+
+---
