@@ -1,9 +1,7 @@
-'use strict'
-
 // Dependencies
-const request = require('request')
-const qs = require('qs')
-const queryValidation = require('./libs/query-validation.json')
+const request = require('request');
+const qs = require('qs');
+const queryValidation = require('./libs/query-validation.json');
 
 /**
  * Endpoint and Query Builder
@@ -12,9 +10,9 @@ const queryValidation = require('./libs/query-validation.json')
  * @param {object} options - Queries
  * @private
  */
-function requestUrl (endpoint, token, options) {
-  const query = '?' + (options ? qs.stringify(options) + '&' : '') + 'client_id=' + token
-  return 'https://api.behance.net/v2/' + endpoint + query
+function requestUrl(endpoint, token, options) {
+  const query = `?${options ? qs.stringify(options) : ''}&client_id=${token}`;
+  return `https://api.behance.net/v2/${endpoint}${query}`;
 }
 
 /**
@@ -23,18 +21,21 @@ function requestUrl (endpoint, token, options) {
  * @param {function} cb - callback
  * @private
  */
-function requestHandler (url, cb) {
-  request(url, function (err, res, data) {
+function requestHandler(url, cb) {
+  request(url, (err, res, data) => {
+    let payload = data;
     if (res.statusCode === 403) {
-      return cb(Error('No response from the Behance API'))
+      return cb(Error('No response from the Behance API'));
     }
 
     try {
-      data = JSON.parse(data)
-    } catch (e) {}
+      payload = JSON.parse(data);
+    } catch (e) {
+      throw Error(e);
+    }
 
-    return cb(err, res, data)
-  })
+    return cb(err, res, payload);
+  });
 }
 
 /**
@@ -44,12 +45,15 @@ function requestHandler (url, cb) {
  * @return {bool}
  * @private
  */
-function compareKeys (obj1, obj2, fn) {
-  for (let prop in obj1) {
-    if (!obj2.hasOwnProperty(prop)) {
-      throw Error('property ' + prop + ' is not a valid query for ' + fn)
+function compareKeys(obj1, obj2, fn) {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  for (let i = 0; i < keys1.length; i++) {
+    if (keys2.indexOf(keys1[i]) <= -1) {
+      throw Error(`property ${keys1[i]} is not a valid query for ${fn}`);
     } else {
-      return true
+      return true;
     }
   }
 }
@@ -60,13 +64,13 @@ function compareKeys (obj1, obj2, fn) {
  * @public
  */
 const Behance = function (token) {
-  this.clientId = token
+  this.clientId = token;
 
   // Throw an error if Auth Key is not specified
   if (this.clientId === undefined) {
-    throw Error('Please supply an authorization token for new Behance().')
+    throw Error('Please supply an authorization token for new Behance().');
   }
-}
+};
 
 // Endpoints that only support Options
 const endpointWithOptionOnly = [{
@@ -89,21 +93,21 @@ const endpointWithOptionOnly = [{
   name: 'collections',
   path: 'collections',
   queries: queryValidation.collections
-}]
+}];
 
-endpointWithOptionOnly.forEach(function (def) {
+endpointWithOptionOnly.forEach(function iterate(def) {
   /**
    * Get a list of projects/creatives/users/collections
    * @param {object} opts - queries
    * @param {function} cb - callback
    * @public
    */
-  Behance.prototype[def.name] = function (opts, cb) {
+  Behance.prototype[def.name] = function assign(opts, cb) {
     if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-      requestHandler(requestUrl(def.path, this.clientId, opts), cb)
+      requestHandler(requestUrl(def.path, this.clientId, opts), cb);
     }
-  }
-})
+  };
+});
 
 /**
  * Endpoints that require an ID with no Options
@@ -128,25 +132,25 @@ const endpointWithOnlyAnId = [{
 }, {
   name: 'collection',
   path: 'collection'
-}]
+}];
 
-endpointWithOnlyAnId.forEach(function (def) {
+endpointWithOnlyAnId.forEach(function iterate(def) {
   /**
    * Get info about a project/user/collection
    * @param {string} id - identifier
    * @param {function} cb - callback
    * @public
    */
-  Behance.prototype[def.name] = function (id, cb) {
-    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
+  Behance.prototype[def.name] = function assign(id, cb) {
+    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
 
     if (arguments.length !== 2) {
-      throw Error('.' + def.name + ' requires both an id and a callback function.')
+      throw Error(`.${def.name} requires both an id and a callback function.`);
     }
 
-    requestHandler(requestUrl(endpoint, this.clientId), cb)
-  }
-})
+    requestHandler(requestUrl(endpoint, this.clientId), cb);
+  };
+});
 
 /**
  * Endpoints that require an ID and support Options
@@ -196,9 +200,9 @@ const endpointWithIdAndOptions = [{
   pathprefix: 'collections/',
   pathsuffix: '/projects',
   queries: queryValidation.collectionProjects
-}]
+}];
 
-endpointWithIdAndOptions.forEach(function (def) {
+endpointWithIdAndOptions.forEach(function iterate(def) {
   /**
    * Get a list of comments/projects/wips/appreciations/collections/followers
    * @param {string} id - identifier
@@ -206,33 +210,34 @@ endpointWithIdAndOptions.forEach(function (def) {
    * @param {function} cb - callback
    * @public
    */
-  Behance.prototype[def.name] = function (id, opts, cb) {
-    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '')
+  Behance.prototype[def.name] = function assign(id, opts, cb) {
+    const endpoint = def.pathprefix + id + (def.pathsuffix ? def.pathsuffix : '');
+    let newCb;
+    let newOpts;
 
     // Update Params order if options aren't supplied
     if (arguments.length === 2) {
-      cb = arguments[1]
-      opts = {}
-      id = arguments[0]
+      newCb = opts;
+      newOpts = {};
     }
 
     if (id === '' || typeof id === 'object') {
-      throw Error('.' + def.name + ' requires at least an id and a callback function.')
+      throw Error(`.${def.name} requires at least an id and a callback function.`);
     }
 
     if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-      requestHandler(requestUrl(endpoint, this.clientId, opts), cb)
+      requestHandler(requestUrl(endpoint, this.clientId, newOpts || opts), newCb || cb);
     }
-  }
-})
+  };
+});
 
 /**
  * Get Creative Fields
  * @param {function} cb - callback
  * @public
  */
-Behance.prototype.fields = function (cb) {
-  requestHandler(requestUrl('fields', this.clientId), cb)
-}
+Behance.prototype.fields = function assign(cb) {
+  requestHandler(requestUrl('fields', this.clientId), cb);
+};
 
-module.exports = Behance
+module.exports = Behance;
