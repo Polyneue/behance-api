@@ -19,16 +19,16 @@ Making a request looks something like this:
 
 ```javascript
 // Dependencies
-const Behance = require('behance-api')
-const Be = new Behance(API_KEY)
+const Behance = require('behance-api');
+const Be = new Behance(API_KEY);
 
 // Get Projects Data
-Be.projects({q: 'motorcycle'}, function (err, res, data) {
-  if (err) throw err
+Be.projects({q: 'motorcycle'}, (err, res, data) => {
+  if (err) throw err;
 
   // Do something with the data received from the API
-  console.dir(data)
-})
+  console.dir(data);
+});
 ```
 
 The snippet above will make a request to the Behance API and receive the first page of results that match the `motorcycle` query for the `/projects/` endpoint. It then displays that data in the terminal. Every callback gets three arguments; an error (if there is one), the HTTP response, and a JSON object.
