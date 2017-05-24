@@ -36,5 +36,5 @@ The snippet above will make a request to the Behance API and receive the first p
 ## API  
 For documentation around accessing all of the endpoints, see [API Docs](https://github.com/Polyneue/behance-api/blob/master/docs/API.md)
 
-## Examples
-For a working example, see [Example](https://github.com/Polyneue/behance-api/blob/master/example/index.js)
+## License  
+MIT

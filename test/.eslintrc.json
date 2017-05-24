@@ -1,16 +1,16 @@
 {
-    "extends": "airbnb-base",
-	"env": {
-		"node": true,
-		"mocha": true
-	},
-    "plugins": [
-        "import"
-    ],
-    "rules": {
-	    "prefer-arrow-callback": "off",
-	    "comma-dangle": "off",
-	    "func-names": ["error", "as-needed"],
-	    "no-underscore-dangle": "off"
-	}
+  "extends": "airbnb-base",
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "prefer-arrow-callback": "off",
+    "comma-dangle": "off",
+    "func-names": ["error", "as-needed"],
+    "no-underscore-dangle": "off"
+  }
 }

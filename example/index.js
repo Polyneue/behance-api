@@ -6,7 +6,13 @@ const key = require('../api.json').key;
 const Be = new Behance(key);
 
 // Get Projects Data and write it to a json file.
-Be.userProjects('edmendoza3', (err, res, data) => {
+// Be.userProjects('edmendoza3', (err, res, data) => {
+//   if (err) throw err;
+//   console.dir(data);
+// });
+
+
+Be.projects({ q: 'motorcycle', sort: 'views' }, function cb(err, res, data) {
   if (err) throw err;
   console.dir(data);
 });
