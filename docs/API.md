@@ -1,12 +1,11 @@
 # Behance API Documenation
-This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response, visit the official [API site](https://www.behance.net/dev/api/endpoints/).
-
----
+> This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response, visit the official [API site](https://www.behance.net/dev/api/endpoints/).
 
 ### Projects Endpoint
 Search for project related data.
 
 **Example:**
+
 ```javascript
 Be.projects(opts, function (err, res, data) {
   console.dir(data);
@@ -14,6 +13,7 @@ Be.projects(opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | opts | `object` | For a list of possible queries see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1) | No
@@ -25,6 +25,7 @@ Be.projects(opts, function (err, res, data) {
 Search for project specific data.
 
 **Example:**
+
 ```javascript
 // Get the information and content of a project.  
 Be.project(id, function (err, res, data) {
@@ -38,6 +39,7 @@ Be.projectComments(id, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | id | `number` | Id of the project to be requested | Yes |
@@ -49,6 +51,7 @@ Be.projectComments(id, function (err, res, data) {
 Search for users.
 
 **Example:**
+
 ```javascript
 Be.users(opts, function (err, res, data) {
   console.dir(data);
@@ -56,6 +59,7 @@ Be.users(opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | -- |
 | opts | `object` | For a list of possible queries see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2) | No 
@@ -67,6 +71,7 @@ Be.users(opts, function (err, res, data) {
 Search for user related data.
 
 **Examples:**
+
 ```javascript
 // Get basic information about a user.
 Be.user(id, function (err, res, data) {
@@ -115,6 +120,7 @@ Be.userWorkExperience(id, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | id | `number/string` | Id or username of the requested user | Yes
@@ -127,6 +133,7 @@ Be.userWorkExperience(id, function (err, res, data) {
 Search for teams related data  
 
 **Example:**
+
 ```javascript
 Be.teams(opts, function (err, res, data) {
   console.dir(data);
@@ -134,6 +141,7 @@ Be.teams(opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | opts | `object` | This is an undocumented endpoint, experiment with possible queries | No
@@ -145,6 +153,7 @@ Be.teams(opts, function (err, res, data) {
 All of the team related functions require a team `id` or username.
 
 **Examples:**
+
 ```javascript
 // Get basic information about a team.
 Be.team(id, function (err, res, data) {
@@ -158,6 +167,7 @@ Be.teamProjects(id, opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | id | `number` | Id of the requested Team | Yes
@@ -170,6 +180,7 @@ Be.teamProjects(id, opts, function (err, res, data) {
 Search for collections.  
 
 **Example:**
+
 ```javascript
 Be.collections(opts, function (err, res, data) {
   console.dir(data);
@@ -177,6 +188,7 @@ Be.collections(opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | opts | `object` | For a list of possible queries see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5) | No
@@ -188,6 +200,7 @@ Be.collections(opts, function (err, res, data) {
 Get collection related data.
 
 **Examples:**
+
 ```javascript
 // Get basic information about a collection.
 Be.collection(id, function (err, res, data) {
@@ -201,6 +214,7 @@ Be.collectionProjects(id, opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | id | `number` | Id for the collection you are requesting | Yes
@@ -213,6 +227,7 @@ Be.collectionProjects(id, opts, function (err, res, data) {
 Provides a list of creatives you might be interested in following.  
 
 **Example:**
+
 ```javascript
 Be.creativesToFollow(opts, function (err, res, data) {
   console.dir(data);
@@ -220,6 +235,7 @@ Be.creativesToFollow(opts, function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | opts | `object` | For a list of possible queries see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9) | No
@@ -237,6 +253,7 @@ Be.fields(function (err, res, data) {
 ```
 
 **Parameters:**
+
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | callback | `function` | Do something with the response data | Yes
