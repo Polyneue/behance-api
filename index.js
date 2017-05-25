@@ -1,8 +1,6 @@
 // Dependencies
 const queryValidation = require('./libs/query-validation.json');
-const requestUrl = require('./libs/request-url');
-const requestHandler = require('./libs/request-handler');
-const compareKeys = require('./libs/compare-keys');
+const utils = require('./libs/utilities');
 
 /**
  * Create an instance of Behance
@@ -49,8 +47,8 @@ endpointWithOptionOnly.forEach(function iterate(def) {
    * @public
    */
   Behance.prototype[def.name] = function assign(opts, cb) {
-    if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-      requestHandler(requestUrl(def.path, this.clientId, opts), cb);
+    if (Object.keys(opts).length === 0 || utils.compareKeys(opts, def.queries, def.name)) {
+      utils.requestHandler(utils.requestUrl(def.path, this.clientId, opts), cb);
     }
   };
 });
@@ -94,7 +92,7 @@ endpointWithOnlyAnId.forEach(function iterate(def) {
       throw Error(`.${def.name} requires both an id and a callback function.`);
     }
 
-    requestHandler(requestUrl(endpoint, this.clientId), cb);
+    utils.requestHandler(utils.requestUrl(endpoint, this.clientId), cb);
   };
 });
 
@@ -171,8 +169,8 @@ endpointWithIdAndOptions.forEach(function iterate(def) {
       throw Error(`.${def.name} requires at least an id and a callback function.`);
     }
 
-    if (Object.keys(opts).length === 0 || compareKeys(opts, def.queries, def.name)) {
-      requestHandler(requestUrl(endpoint, this.clientId, newOpts || opts), newCb || cb);
+    if (Object.keys(opts).length === 0 || utils.compareKeys(opts, def.queries, def.name)) {
+      utils.requestHandler(utils.requestUrl(endpoint, this.clientId, newOpts || opts), newCb || cb);
     }
   };
 });
@@ -183,7 +181,7 @@ endpointWithIdAndOptions.forEach(function iterate(def) {
  * @public
  */
 Behance.prototype.fields = function assign(cb) {
-  requestHandler(requestUrl('fields', this.clientId), cb);
+  utils.requestHandler(utils.requestUrl('fields', this.clientId), cb);
 };
 
 module.exports = Behance;

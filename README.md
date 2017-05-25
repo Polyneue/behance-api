@@ -23,7 +23,7 @@ const Behance = require('behance-api');
 const Be = new Behance(API_KEY);
 
 // Get Projects Data
-Be.projects({q: 'motorcycle'}, (err, res, data) => {
+Be.projects({q: 'motorcycle'}, function (err, res, data) {
   if (err) throw err;
 
   // Do something with the data received from the API

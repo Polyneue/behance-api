@@ -1,10 +1,8 @@
 // Dependencies
 const nock = require('nock');
 const expect = require('chai').expect;
-const requestUrl = require('../libs/request-url');
-const requestHandler = require('../libs/request-handler');
-const compareKeys = require('../libs/compare-keys');
 const Behance = require('../index.js');
+const utils = require('../libs/utilities');
 
 // Create an Instance of Behance API with fake key
 const key = 123456789;
@@ -21,7 +19,7 @@ describe('behance-api: private functions', () => {
   // requestHandler
   describe('requestHandler', () => {
     it('Throw Error when API returns forbidden', (done) => {
-      requestHandler(`https://api.behance.net/v2/projects?q=motorcycle?client_id=${key}`, (err) => {
+      utils.requestHandler(`https://api.behance.net/v2/projects?q=motorcycle?client_id=${key}`, (err) => {
         expect(err).to.be.an('error');
         done();
       });
@@ -31,7 +29,7 @@ describe('behance-api: private functions', () => {
   // requestUrl
   describe('requestUrl', () => {
     it('Create a valid url from endpoint and query inputs', (done) => {
-      const result = requestUrl('projects', key, { q: 'motorcycle', time: 'month' });
+      const result = utils.requestUrl('projects', key, { q: 'motorcycle', time: 'month' });
       expect(result).to.equal(`https://api.behance.net/v2/projects?q=motorcycle&time=month&client_id=${key}`);
       done();
     });
@@ -40,13 +38,13 @@ describe('behance-api: private functions', () => {
   // compareKeys
   describe('compareKeys', () => {
     it('Succeed with valid keys', (done) => {
-      const result = compareKeys({ sort: '' }, { q: '', sort: '' }, 'Test Function');
+      const result = utils.compareKeys({ sort: '' }, { q: '', sort: '' }, 'Test Function');
       expect(result).to.be.true; // eslint-disable-line
       done();
     });
 
     it('Error on invalid keys', (done) => {
-      const fn = function () { compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function'); };
+      const fn = function () { utils.compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function'); };
       expect(fn).to.throw(Error);
       done();
     });

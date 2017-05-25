@@ -24,7 +24,7 @@ Be.projects(opts, function (err, res, data) {
 ### Project Endpoints
 Search for project specific data.
 
-**Example:**
+**Examples:**
 
 ```javascript
 // Get the information and content of a project.  
@@ -257,4 +257,3 @@ Be.fields(function (err, res, data) {
 | Parameter | Type | Description | Required |
 | --- | --- | --- | --- |
 | callback | `function` | Do something with the response data | Yes
----
