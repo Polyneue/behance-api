@@ -49,8 +49,7 @@ endpointWithOptionOnly.forEach(function iterate(def) {
    */
   Behance.prototype[def.name] = function assign(opts, cb) {
     if (Object.keys(opts).length === 0 || utils.compareKeys(opts, def.queries, def.name)) {
-      const url = utils.requestUrl(def.path, this.clientId, opts);
-      utils.requestHandler(url, cb);
+      utils.requestHandler(utils.requestUrl(def.path, this.clientId, opts), cb);
     }
   };
 });
@@ -85,6 +84,7 @@ endpointWithOnlyAnId.forEach(function iterate(def) {
    * Get info about a project/user/collection
    * @param {string} id - identifier
    * @param {function} cb - callback
+   * @return {object} - response from Behance API
    * @public
    */
   Behance.prototype[def.name] = function assign(id, cb) {
@@ -154,6 +154,7 @@ endpointWithIdAndOptions.forEach(function iterate(def) {
    * @param {string} id - identifier
    * @param {object} opts - queries
    * @param {function} cb - callback
+   * @return {object} - response from Behance API
    * @public
    */
   Behance.prototype[def.name] = function assign(id, opts, cb) {
@@ -180,6 +181,7 @@ endpointWithIdAndOptions.forEach(function iterate(def) {
 /**
  * Get Creative Fields
  * @param {function} cb - callback
+ * @return {object} - response from Behance API
  * @public
  */
 Behance.prototype.fields = function assign(cb) {
