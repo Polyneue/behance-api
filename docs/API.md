@@ -7,6 +7,7 @@ Search for project related data.
 **Example:**
 
 ```javascript
+// Get the information form ultiple projects
 Be.projects(opts, function (err, res, data) {
   console.dir(data);
 });
@@ -53,6 +54,7 @@ Search for users.
 **Example:**
 
 ```javascript
+// Get user related data
 Be.users(opts, function (err, res, data) {
   console.dir(data);
 });
@@ -135,6 +137,7 @@ Search for teams related data
 **Example:**
 
 ```javascript
+// Get teams related data
 Be.teams(opts, function (err, res, data) {
   console.dir(data);
 });
@@ -182,6 +185,7 @@ Search for collections.
 **Example:**
 
 ```javascript
+// Get collection results
 Be.collections(opts, function (err, res, data) {
   console.dir(data);
 });
@@ -229,6 +233,7 @@ Provides a list of creatives you might be interested in following.
 **Example:**
 
 ```javascript
+// Get a list of creatives
 Be.creativesToFollow(opts, function (err, res, data) {
   console.dir(data);
 });
@@ -247,6 +252,7 @@ Be.creativesToFollow(opts, function (err, res, data) {
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
+// Get creative fields
 Be.fields(function (err, res, data) {
   console.dir(data);
 });

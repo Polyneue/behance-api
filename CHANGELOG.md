@@ -1,13 +1,11 @@
-#Change Log
-All notable changes to this project will be documented in this file.
+# Changelog
+> All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
-
-## [1.1.3] - 2017-05-02
+## 1.1.3 - 2017-05-02
 ### Changed
 * Changed to using airbnb standards
 
-## [1.1.2] - 2017-04-25
+## 1.1.2 - 2017-04-25
 ### Changed
 * Added logo to npmignore
 * Updated license year
@@ -16,12 +14,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * New API documentation
 * README now references examples and API docs
 
-## [1.1.1] - 2017-04-19
+## 1.1.1 - 2017-04-19
 ### Changed
 * Minor code style updates in readme
 * Fix for behane logo not showing on npmjs.com
 
-## [1.1.0] - 2017-04-19
+## 1.1.0 - 2017-04-19
 ### Added
 * Linting for coding standards (standardjs)
 * Added logo per Behance branding guidelines
@@ -33,7 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * team endoints added to readme
 * updated travis file to only run on develop or master
 
-## [1.0.0] - 2016-11-16
+## 1.0.0 - 2016-11-16
 ### Added
 * Validation for request that use queries.
 * Test suite covers 100% of code now.
@@ -48,15 +46,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * Update to README layout for API information.
 * Simplified example js file.
 
-## [0.1.2] - 2016-10-28
+## 0.1.2 - 2016-10-28
 ### Removed
 * Removing coverage from npm package.
 
-## [0.1.1] - 2016-10-28
+## 0.1.1 - 2016-10-28
 ### Removed
 * Remove example js from npm package.
 
-## [0.1.0] - 2016-10-28
+## 0.1.0 - 2016-10-28
 ### Added
 * Wrote initial API functions.
 * Updated README with new API usage and examples.
@@ -65,12 +63,3 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 0.0.2 - 2016-10-26
 ### Added
 * Initial setup of README, Packages, and License for repo and npm.
-
-[1.1.3]: https://github.com/Polyneue/behance-api/compare/v1.1.3...HEAD
-[1.1.2]: https://github.com/Polyneue/behance-api/compare/v1.1.1...v1.1.2
-[1.1.1]: https://github.com/Polyneue/behance-api/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/Polyneue/behance-api/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/Polyneue/behance-api/compare/v0.1.2...v1.0.0
-[0.1.2]: https://github.com/Polyneue/behance-api/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/Polyneue/behance-api/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/Polyneue/behance-api/compare/v0.0.2...v0.1.0

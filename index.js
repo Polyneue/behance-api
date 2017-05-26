@@ -1,5 +1,5 @@
 // Dependencies
-const queryValidation = require('./libs/query-validation.json');
+const queryValidation = require('./libs/query-validation.js');
 const utils = require('./libs/utilities');
 
 /**
@@ -44,11 +44,13 @@ endpointWithOptionOnly.forEach(function iterate(def) {
    * Get a list of projects/creatives/users/collections
    * @param {object} opts - queries
    * @param {function} cb - callback
+   * @return {object} - response from Behance API
    * @public
    */
   Behance.prototype[def.name] = function assign(opts, cb) {
     if (Object.keys(opts).length === 0 || utils.compareKeys(opts, def.queries, def.name)) {
-      utils.requestHandler(utils.requestUrl(def.path, this.clientId, opts), cb);
+      const url = utils.requestUrl(def.path, this.clientId, opts);
+      utils.requestHandler(url, cb);
     }
   };
 });

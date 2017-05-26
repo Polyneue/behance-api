@@ -44,7 +44,9 @@ describe('behance-api: private functions', () => {
     });
 
     it('Error on invalid keys', (done) => {
-      const fn = function () { utils.compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function'); };
+      const fn = function () {
+        utils.compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function'); 
+      };
       expect(fn).to.throw(Error);
       done();
     });
