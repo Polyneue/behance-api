@@ -1,207 +1,250 @@
 # Behance API Documenation
-This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response, visit the official [API site](https://www.behance.net/dev/api/endpoints/).
-
----
+> This document contains all of the Behance endpoints that are accessible via the behance-api module. For example data from each response, visit the official [API site](https://www.behance.net/dev/api/endpoints/).
 
 ### Projects Endpoint
-Search for projects.  
+Search for project related data.
+
+**Example:**
 
 ```javascript
+// Get the information form ultiple projects
 Be.projects(opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### opts
-Type: `Object`  
-For a list of options see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1)
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| opts | `object` | For a list of possible queries see [Project Endpoint](https://www.behance.net/dev/api/endpoints/1) | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### Project Endpoints
-All of the project related functions require a project `id`.
+Search for project specific data.
+
+**Examples:**
 
 ```javascript
 // Get the information and content of a project.  
-Be.project(id, (err, res, data) => {
+Be.project(id, function (err, res, data) {
   console.dir(data);
 });
 
 // Get the comments for a project.   
-Be.projectComments(id, (err, res, data) => {
+Be.projectComments(id, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-### id
-Type: `Number` (required)
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id | `number` | Id of the project to be requested | Yes |
+| callback | `function` | Do something with the response data | Yes |
 
 ---
 
 ### Users Endpoint
-Search for users.  
+Search for users.
+
+**Example:**
 
 ```javascript
-Be.users(opts, (err, res, data) => {
+// Get user related data
+Be.users(opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### opts
-Type: `Object`  
-For a list of options see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2)
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | -- |
+| opts | `object` | For a list of possible queries see [Users Endpoint](https://www.behance.net/dev/api/endpoints/2) | No 
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### User Endpoints
-All of the user related functions require a user `id` or username.
+Search for user related data.
+
+**Examples:**
 
 ```javascript
 // Get basic information about a user.
-Be.user(id, (err, res, data) => {
+Be.user(id, function (err, res, data) {
   console.dir(data);
 });
 
 // Get the projects published by a user.  
-Be.userProjects(id, opts, (err, res, data) => {
+Be.userProjects(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // Get the works-in-progress published by a user.  
-Be.userWips(id, opts, (err, res, data) => {
+Be.userWips(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // Get a list of user's recently appreciated projects.  
-Be.userApprecitations(id, opts, (err, res, data) => {
+Be.userApprecitations(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // Get a list of a user's collections.  
-Be.userCollections(id, opts, (err, res, data) => {
+Be.userCollections(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // Get statistics (all-time and today) for a specific user. Includes number of project views, appreciations, comments, and profile views.
-Be.userStats(id, (err, res, data) => {
+Be.userStats(id, function (err, res, data) {
   console.dir(data);
 });
 
 // Get a list of creatives who follow the user.  
-Be.userFollowers(id, opts, (err, res, data) => {
+Be.userFollowers(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // Get a list of creatives followed by the user.  
-Be.userFollowing(id, opts, (err, res, data) => {
+Be.userFollowing(id, opts, function (err, res, data) {
   console.dir(data);
 });
 
 // A list of the user's professional experience
-Be.userWorkExperience(id, (err, res, data) => {
+Be.userWorkExperience(id, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### id
-Type: `Number` || `String` (required)
+**Parameters:**
 
-#### opts
-Type: `Object`  
-For a list of options, see [User Endpoints](https://www.behance.net/dev/api/endpoints/2)
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id | `number/string` | Id or username of the requested user | Yes
+| opts | `object` | For a list of possible queries see [User Endpoints](https://www.behance.net/dev/api/endpoints/2) | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### Teams Endpoint
-Search for teams.  
+Search for teams related data  
+
+**Example:**
 
 ```javascript
-Be.teams(opts, (err, res, data) => {
+// Get teams related data
+Be.teams(opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### opts
-Type: `Object`  
-This is an undocumented endpoint.
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| opts | `object` | This is an undocumented endpoint, experiment with possible queries | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### Team Endpoints
 All of the team related functions require a team `id` or username.
 
+**Examples:**
+
 ```javascript
 // Get basic information about a team.
-Be.team(id, (err, res, data) => {
+Be.team(id, function (err, res, data) {
   console.dir(data);
 });
 
 // Get the projects published by a team.  
-Be.teamProjects(id, opts, (err, res, data) => {
+Be.teamProjects(id, opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### id
-Type: `Number` (required)
+**Parameters:**
 
-#### opts
-Type: `Object`  
-This is an undocumented endpoint.
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id | `number` | Id of the requested Team | Yes
+| opts | `object` | This is an undocumented endpoint, experiment with possible queries | No
+| callback | `function` | Do something with the response data | Yes 
 
 ---
 
 ### Collections Endpoint
 Search for collections.  
 
+**Example:**
+
 ```javascript
-Be.collections(opts, (err, res, data) => {
+// Get collection results
+Be.collections(opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### opts
-Type: `Object`  
-For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| opts | `object` | For a list of possible queries see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5) | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### Collection Endpoints
-All collection related functions require a collection `id`
+Get collection related data.
+
+**Examples:**
 
 ```javascript
 // Get basic information about a collection.
-Be.collection(id, (err, res, data) => {
+Be.collection(id, function (err, res, data) {
   console.dir(data);
 });
 
 // Get projects from a collection.  
-Be.collectionProjects(id, opts, (err, res, data) => {
+Be.collectionProjects(id, opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### id
-Type: `Number` (required)
+**Parameters:**
 
-#### opts
-Type: `Object`  
-For a list of options, see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5)
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id | `number` | Id for the collection you are requesting | Yes
+| opts | `object` | For a list of possible queries see [Collections Endpoint](https://www.behance.net/dev/api/endpoints/5) | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
 ### Creatives To Follow Endpoint
 Provides a list of creatives you might be interested in following.  
 
+**Example:**
+
 ```javascript
-Be.creativesToFollow(opts, (err, res, data) => {
+// Get a list of creatives
+Be.creativesToFollow(opts, function (err, res, data) {
   console.dir(data);
 });
 ```
 
-#### opts
-Type: `Object`  
-For a list of options, see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9)
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| opts | `object` | For a list of possible queries see [Creatives to Follow Endpoint](https://www.behance.net/dev/api/endpoints/9) | No
+| callback | `function` | Do something with the response data | Yes
 
 ---
 
@@ -209,9 +252,14 @@ For a list of options, see [Creatives to Follow Endpoint](https://www.behance.ne
 Retrieves all Creative Fields in two groups, all fields (in 'fields') and popular ones (in 'popular')
 
 ```javascript
-Be.fields((err, res, data) => {
+// Get creative fields
+Be.fields(function (err, res, data) {
   console.dir(data);
 });
 ```
 
----
+**Parameters:**
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| callback | `function` | Do something with the response data | Yes
