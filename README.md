@@ -23,7 +23,7 @@ const Behance = require('behance-api');
 const Be = new Behance(API_KEY);
 
 // Get Projects Data
-Be.projects({q: 'motorcycle'}, (err, res, data) => {
+Be.projects({q: 'motorcycle'}, function (err, res, data) {
   if (err) throw err;
 
   // Do something with the data received from the API
@@ -36,5 +36,5 @@ The snippet above will make a request to the Behance API and receive the first p
 ## API  
 For documentation around accessing all of the endpoints, see [API Docs](https://github.com/Polyneue/behance-api/blob/master/docs/API.md)
 
-## Examples
-For a working example, see [Example](https://github.com/Polyneue/behance-api/blob/master/example/index.js)
+## License  
+MIT
