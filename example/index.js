@@ -6,7 +6,7 @@ const API_KEY = require('../api.json').key;
 const Be = new Behance(API_KEY);
 
 // Get Projects Data and write it to a json file.
-Be.projects({ q: 'motorcycle', sort: 'views' }, function (err, res, data) {
+Be.projects({ q: 'motorcycle', sort: 'views' }, function callback(err, res, data) {
   if (err) throw err;
-  console.dir(data);
+  console.dir(data);  // eslint-disable-line
 });

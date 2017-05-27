@@ -45,7 +45,7 @@ describe('behance-api: private functions', () => {
 
     it('Error on invalid keys', (done) => {
       const fn = function () {
-        utils.compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function'); 
+        utils.compareKeys({ q: '', fail: '', sort: '' }, { q: '', sort: '' }, 'Test Function');
       };
       expect(fn).to.throw(Error);
       done();
@@ -116,14 +116,14 @@ describe('behance-api: public functions', () => {
       Be.project('4889175', (err, res, data) => {
         if (err) throw err;
         expect(data).to.have.property('project');
-        expect(data).to.have.deep.property('project.id', 4889175);
+        expect(data.project).to.have.property('id', 4889175);
         done();
       });
     });
 
     it('Error when no ID is provided', (done) => {
       const fn = function () {
-        Be.project((err, res, data) => {
+        Be.project((err) => {
           if (err) throw err;
         });
       };
@@ -151,7 +151,7 @@ describe('behance-api: public functions', () => {
 
     it('Error when no ID is provided', (done) => {
       const fn = function () {
-        Be.userProjects({ sort: 'appreciations' }, (err, res, data) => {
+        Be.userProjects({ sort: 'appreciations' }, (err) => {
           if (err) throw err;
         });
       };
