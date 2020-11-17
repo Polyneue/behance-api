@@ -1,5 +1,5 @@
 # behance-api
-<img src="https://raw.githubusercontent.com/Polyneue/behance-api/master/behance-api-logo.png" width="90px" />
+<img src="https://raw.githubusercontent.com/Polyneue/behance-api/main/behance-api-logo.png" width="90px" />
 
 [![Build Status](https://travis-ci.org/Polyneue/behance-api.svg?branch=master)](https://travis-ci.org/Polyneue/behance-api)
 [![Coverage Status](https://coveralls.io/repos/github/Polyneue/behance-api/badge.svg?branch=master)](https://coveralls.io/github/Polyneue/behance-api?branch=master)
